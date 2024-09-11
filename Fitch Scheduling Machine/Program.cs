@@ -8,4 +8,4 @@ List<Course> allCourses = new List<Course>(MakeCourseList.makeCourseList());
 allCourses.ForEach(x => {
     Console.WriteLine(x.courseName);
 });
-Console.WriteLine("Example");
+Console.WriteLine("Hi");
