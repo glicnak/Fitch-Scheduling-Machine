@@ -12,3 +12,4 @@ O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Schedulin
 O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.pdb
 O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.genruntimeconfig.cache
 O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\obj\Debug\net8.0\ref\Fitch Scheduling Machine.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.sourcelink.json
