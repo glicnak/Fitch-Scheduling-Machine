@@ -9,27 +9,23 @@ namespace Fitch_Scheduling_Machine
     {
         public static List<Course> makeCourseList(){
             //Initialize allCoursesArrayFromSource as an array of arrays (Courses) of arrays (properties of each course). This should be generated from the user input.
-            //string subject, string teacher, string[] groups, string room, int repetitions
-            string[][][] allCoursesArrayFromSource = new string[][][]{
-                [["French"],[ "Adam"], ["A"],["224"],["4"]],
-                [["French"],[ "Adam"], ["A"],["224"],["4"]],
-                [["French"],[ "Adam"], ["A"],["224"],["2"]],
-                [["French"],[ "Adam"], ["B"],["224"],["4"]],
-                [["Phys Ed"],[ "Adam"], ["B"],["Gym"],["2"]],
-                [["Phys Ed"],[ "Adam"], ["D"],["Gym"],["2"]],
-                [["Phys Ed"],[ "Adam"], ["FG"],["Gym"],["2"]],
-                [["Out Ed"],[ "Adam"], ["FG"],["Gym"],["4"]],
-                [["Math"],[ "Mike"], ["A"],["224"],["4"]],
-                [["Math"],[ "Mike"], ["B"],["224"],["4"]],
-                [["Music"],[ "Mike"], ["D"],["113"],["2"]],
-                [["Music"],[ "Mike"], ["F","G"],["113"],["2"]],
-                [["Music"],[ "Mike"], ["NV"],["NV"],["2"]],
-                [["Music"],[ "Mike"], ["JS"],["JS"],["2"]],
+            //subject, repetitions, teacher, room, groups
+            string[][] allCoursesArrayFromSource = new string[][]{
+                ["French", "4", "Adam", "224", "A"],
+                ["French", "4", "Adam", "224", "B"],
+                ["Phys Ed", "2", "Adam", "Gym", "B"],
+                ["Phys Ed", "2", "Adam", "Gym", "D"],
+                ["Phys Ed", "2", "Adam", "Gym", "F", "G"],
+                ["Out Ed", "2", "Adam", "Gym", "F", "G"],
+                ["Music", "2", "Mike", "113", "D"],
+                ["Music", "2", "Mike", "113", "F", "G"],
+                ["Music", "2", "Mike", "NV", "NV"],
+                ["Music", "2", "Mike", "JS", "JS"],
                 };
             
             //Make the list of every course.
             List<Course> allCourses = new List<Course>();
-            foreach(string[][] a in allCoursesArrayFromSource){
+            foreach(string[] a in allCoursesArrayFromSource){
 
                 //Make the new course
                 Course newCourse = makeNewCourse(a);
@@ -48,23 +44,27 @@ namespace Fitch_Scheduling_Machine
             return allCourses;
         }
 
+
         //Function to take string[][] and turn it into a Course
-        public static Course makeNewCourse(string[][] a){
+        public static Course makeNewCourse(string[] a){
 
             //Initialize new ourse
             Course newCourse = new Course();
 
-            //Assign the variables
-            newCourse.subject = a[0][0].ToString();
-            newCourse.teacher = a[1][0].ToString();
-            foreach(string g in a[2]){
-                newCourse.groups.Add(g);
-            }
-            newCourse.room = a[3][0].ToString();
+            //Assign the Subject, Teacher & Room
+            newCourse.subject = a[0].ToString();
+            newCourse.teacher = a[2].ToString();
+            newCourse.room = a[3].ToString();
 
-            //Number of Reps
-            int.TryParse(a[4][0], out int val);
+            //Assign the number of Reps
+            int.TryParse(a[1], out int val);
             newCourse.repetitions = val;
+
+            //Assign the groups and sort them alphabetically
+            for (int i=4; i<a.Length;i++){
+                newCourse.groups.Add(a[i]);
+            }
+            newCourse.groups.Sort();
 
             //Format name as: Subject (space) Groups
             newCourse.courseName = newCourse.subject + " ";
