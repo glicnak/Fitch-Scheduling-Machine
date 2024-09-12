@@ -8,61 +8,76 @@ namespace Fitch_Scheduling_Machine
     public class MakeCourseList
     {
         public static List<Course> makeCourseList(){
-            //Initialize allCoursesArrayFromSource as an array of arrays (Courses) of arrays (properties of each course). This should be generated from the user input.
-            //subject, repetitions, teacher, room, groups
-            string[][] allCoursesArrayFromSource = new string[][]{
-                ["French", "4", "Adam", "224", "A"],
-                ["French", "4", "Adam", "224", "B"],
-                ["Phys Ed", "2", "Adam", "Gym", "B"],
-                ["Phys Ed", "2", "Adam", "Gym", "D"],
-                ["Phys Ed", "2", "Adam", "Gym", "F", "G"],
-                ["Out Ed", "2", "Adam", "Gym", "F", "G"],
-                ["Music", "2", "Mike", "113", "D"],
-                ["Music", "2", "Mike", "113", "F", "G"],
-                ["Music", "2", "Mike", "NV", "NV"],
-                ["Music", "2", "Mike", "JS", "JS"],
-                };
+        //Initialize allCoursesArrayFromSource as a list of arrays (Courses) of strings (properties of each course). This should be generated from the user input, right now coming from ClassList.txt.
+        //subject, repetitions, groups, teacher, room
+            List<string[]> allCoursesArrayFromInput = new List<string[]>();
+
+            // Path to the text file
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string filePath = Path.Combine(basePath, "..","..","..","ClassList.txt");
+
+            // Read all lines from the file
+            string[] fileLines = File.ReadAllLines(filePath);
+
+            foreach (string line in fileLines){
+                // Split each line by commas to get individual elements
+                string[] stringElements = line.Split(',');
+                allCoursesArrayFromInput.Add(stringElements);
+            }
+
             
-            //Make the list of every course.
+        //Make the list of every course.
             List<Course> allCourses = new List<Course>();
-            foreach(string[] a in allCoursesArrayFromSource){
+            allCoursesArrayFromInput.ForEach( a=> {
 
                 //Make the new course
                 Course newCourse = makeNewCourse(a);
 
-                //Don't add if a course has the same name
+                //Don't add if a course has the same name or if null
                 bool uniqueCourse = true;
                 allCourses.ForEach(x=>{
-                    if(x.courseName == newCourse.courseName){
-                        uniqueCourse = false;
+                    if(x!=null && newCourse != null){
+                        if(string.Equals(x.courseName, newCourse.courseName, StringComparison.OrdinalIgnoreCase)){
+                            uniqueCourse = false;
+                        }
                     }
                 });
                 if(uniqueCourse){
                     allCourses.Add(newCourse);
                 }
-            }   
+            }); 
             return allCourses;
         }
 
 
-        //Function to take string[][] and turn it into a Course
+    //Function to take string[][] and turn it into a Course
         public static Course makeNewCourse(string[] a){
+            //If array length is less than 5, it is poorly formatted. Return null
+            if(a.Length<5){
+                return null;
+            }
 
             //Initialize new ourse
             Course newCourse = new Course();
 
-            //Assign the Subject, Teacher & Room
-            newCourse.subject = a[0].ToString();
-            newCourse.teacher = a[2].ToString();
-            newCourse.room = a[3].ToString();
+            //Get the length of the course array
+            int z = a.Length;
 
-            //Assign the number of Reps
+            //Assign the Subject, Teacher & Room
+            newCourse.subject = trimCapitalizeFirstLetter(a[0].ToString());
+            newCourse.teacher = trimCapitalizeFirstLetter(a[z-2].ToString());
+            newCourse.room = trimCapitalizeFirstLetter(a[z-1].ToString());
+
+            //Assign the number of Reps. If 0, it means reps were a string. Return null.
             int.TryParse(a[1], out int val);
+            if (val == 0){
+                return null;
+            }
             newCourse.repetitions = val;
 
             //Assign the groups and sort them alphabetically
-            for (int i=4; i<a.Length;i++){
-                newCourse.groups.Add(a[i]);
+            for (int i=2; i<z-2;i++){
+                newCourse.groups.Add(trimCapitalizeFirstLetter(a[i]));
             }
             newCourse.groups.Sort();
 
@@ -73,6 +88,19 @@ namespace Fitch_Scheduling_Machine
             });
             
             return newCourse;
+        }
+
+        public static string trimCapitalizeFirstLetter(string strRaw)
+        {
+            //Remove spaces at the front and at the end of the string
+            string str = strRaw.Trim(); 
+            
+            //Check if empty
+            if (string.IsNullOrEmpty(str))
+                return str;
+
+            // Capitalize the first letter and concatenate with the rest of the string
+            return char.ToUpper(str[0]) + str.Substring(1);
         }
         
     }
