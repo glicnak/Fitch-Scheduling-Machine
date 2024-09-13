@@ -12,16 +12,12 @@ namespace Fitch_Scheduling_Machine
         //subject, repetitions, groups, teacher, room
             List<string[]> allCoursesArrayFromInput = new List<string[]>();
 
-            // Path to the text file
-            string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            string filePath = Path.Combine(basePath, "..","..","..","ClassList.txt");
+            string[] fileLines = readFile("courseInfo");
 
-            // Read all lines from the file
-            string[] fileLines = File.ReadAllLines(filePath);
-
-            foreach (string line in fileLines){
+            //Make courses array from the rest
+            for (int i=1; i<fileLines.Length;i++){
                 // Split each line by commas to get individual elements
-                string[] stringElements = line.Split(',');
+                string[] stringElements = fileLines[i].Split(',');
                 allCoursesArrayFromInput.Add(stringElements);
             }
 
@@ -42,7 +38,7 @@ namespace Fitch_Scheduling_Machine
                         }
                     }
                 });
-                if(uniqueCourse){
+                if(uniqueCourse && newCourse!=null){
                     allCourses.Add(newCourse);
                 }
             }); 
@@ -51,7 +47,7 @@ namespace Fitch_Scheduling_Machine
 
 
     //Function to take string[][] and turn it into a Course
-        public static Course makeNewCourse(string[] a){
+        public static Course? makeNewCourse(string[] a){
             //If array length is less than 5, it is poorly formatted. Return null
             if(a.Length<5){
                 return null;
@@ -102,6 +98,27 @@ namespace Fitch_Scheduling_Machine
             // Capitalize the first letter and concatenate with the rest of the string
             return char.ToUpper(str[0]) + str.Substring(1);
         }
-        
+
+        public static string[] readFile(string infoRequest){
+            // Path to the text file
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string filePath = Path.Combine(basePath, "..","..","..","ClassList.txt");
+
+            // Read all lines from the file
+            string[] fileLines = File.ReadAllLines(filePath);
+
+            //Make an info array 'scheduleInfo' from the first line
+            //Days per cycle, Periods per day, Number of groups
+            string[] scheduleInfo = fileLines[0].Split(',');
+            foreach(string a in scheduleInfo){
+                trimCapitalizeFirstLetter(a);
+            }
+            if (infoRequest == "scheduleInfo"){
+                return scheduleInfo;
+            }        
+            else {
+                return fileLines;
+            }
+        }
     }
 }

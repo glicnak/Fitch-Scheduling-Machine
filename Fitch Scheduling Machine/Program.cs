@@ -2,9 +2,12 @@
 using Fitch_Scheduling_Machine;
 
 //Initialize variables
-List<Course> allCourses = new List<Course>(MakeCourseList.makeCourseList());
+/*List<Course> allCourses = new List<Course>(MakeCourseList.makeCourseList());
 
 //Print out Names of all Courses
 allCourses.ForEach(x => {
     Console.WriteLine(x.courseName);
-});
+});*/
+
+MakeSchedule.makeSchedule(MakeCourseList.makeCourseList());
+
