@@ -42,17 +42,48 @@ namespace Fitch_Scheduling_Machine
                 Console.WriteLine(); // Extra newline for spacing between layers
             }
 
+
+
         }
 
         public static void populateSchedule(Course[,,] schedule2dArray, List<Course> allCourses, int daysPerCycle, int periodsPerDay, int numGroups){
+            
+        //Dictionary to ensure no course is present more than Rep times
+            Dictionary<Course, int> courseCount = allCourses.ToDictionary(c => c, c =>0);
+
+            Random random = new Random();
+            
+        //Per Cycle
             for (int i = 0; i < daysPerCycle; i++){
+        //Per Day
                 for (int j = 0; j < periodsPerDay; j++){
+                    //Make sure no class is repeated twice in the day
+                    List<Course> usedInDay = new List<Course>(); // Track Courses used in this [i,j]
+        //Per Period
                     for (int k = 0; k < numGroups; k++){
-                        //Populate randomly
-                        Random random = new Random();
-                        int randomIndex = random.Next(allCourses.Count);
-                        Course randomCourse = allCourses[randomIndex];
-                        schedule2dArray[i,j,k] = randomCourse;
+                        Course selectedCourse = null;
+                        List<Course> availableCourses = allCourses
+                            .Where(c => courseCount[c] < c.repetitions && !usedInDay.Contains(c))
+                            .ToList();
+
+                        if (availableCourses.Count == 0)
+                        {
+                            //throw new InvalidOperationException("Not enough strings to fill the array with the given constraints.");
+                            Course empty = new Course(){};
+                            empty.courseName = "Empty";
+                            availableCourses.Add(empty);
+                        }
+
+                        selectedCourse = availableCourses[random.Next(availableCourses.Count)];
+
+                        // Assign string to the array
+                        schedule2dArray[i, j, k] = selectedCourse;
+
+                        // Track its usage
+                        if(selectedCourse.courseName != "Empty"){
+                            courseCount[selectedCourse]++;
+                            usedInDay.Add(selectedCourse);
+                        }
                     }
                 }
             }

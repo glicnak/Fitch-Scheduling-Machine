@@ -2,12 +2,16 @@
 using Fitch_Scheduling_Machine;
 
 //Initialize variables
-/*List<Course> allCourses = new List<Course>(MakeCourseList.makeCourseList());
+List<Course> allCourses = new List<Course>(MakeCourseList.makeCourseList());
 
+int totalNumberOfClasses=0;
 //Print out Names of all Courses
 allCourses.ForEach(x => {
     Console.WriteLine(x.courseName);
-});*/
+    totalNumberOfClasses+=x.repetitions;
+});
 
-MakeSchedule.makeSchedule(MakeCourseList.makeCourseList());
+Console.WriteLine("Total number of classes: " + totalNumberOfClasses);
+
+MakeSchedule.makeSchedule(allCourses);
 
