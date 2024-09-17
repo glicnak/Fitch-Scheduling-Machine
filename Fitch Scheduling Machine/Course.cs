@@ -10,9 +10,10 @@ namespace Fitch_Scheduling_Machine
         public string courseName = "";
         public string subject = "";
         public string teacher = "";
-        public List<string> groups = new List<string>();
+        public string group = "";
         public string room = "";
         public int repetitions = 0;
+        public string link = null;
     }
 
 }

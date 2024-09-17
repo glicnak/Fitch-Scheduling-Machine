@@ -29,19 +29,11 @@ namespace Fitch_Scheduling_Machine
                 //Make the new course
                 Course newCourse = makeNewCourse(a);
 
-                //Don't add if a course has the same name or if null
-                bool uniqueCourse = true;
-                allCourses.ForEach(x=>{
-                    if(x!=null && newCourse != null){
-                        if(string.Equals(x.courseName, newCourse.courseName, StringComparison.OrdinalIgnoreCase)){
-                            uniqueCourse = false;
-                        }
-                    }
-                });
-                if(uniqueCourse && newCourse!=null){
+                if(newCourse!=null){
                     allCourses.Add(newCourse);
                 }
             }); 
+
             return allCourses;
         }
 
@@ -56,13 +48,11 @@ namespace Fitch_Scheduling_Machine
             //Initialize new ourse
             Course newCourse = new Course();
 
-            //Get the length of the course array
-            int z = a.Length;
-
             //Assign the Subject, Teacher & Room
-            newCourse.subject = trimCapitalizeFirstLetter(a[0].ToString());
-            newCourse.teacher = trimCapitalizeFirstLetter(a[z-2].ToString());
-            newCourse.room = trimCapitalizeFirstLetter(a[z-1].ToString());
+            newCourse.subject = trimCapitalizeFirstLetter(a[0]);
+            newCourse.group = (trimCapitalizeFirstLetter(a[2]));
+            newCourse.teacher = trimCapitalizeFirstLetter(a[3]);
+            newCourse.room = trimCapitalizeFirstLetter(a[4]);
 
             //Assign the number of Reps. If 0, it means reps were a string. Return null.
             int.TryParse(a[1], out int val);
@@ -71,17 +61,13 @@ namespace Fitch_Scheduling_Machine
             }
             newCourse.repetitions = val;
 
-            //Assign the groups and sort them alphabetically
-            for (int i=2; i<z-2;i++){
-                newCourse.groups.Add(trimCapitalizeFirstLetter(a[i]));
+            //Assign link
+            if(a.Length>5 && a[5] != null && a[5]!=""){
+                newCourse.link = trimCapitalizeFirstLetter(a[5]);
             }
-            newCourse.groups.Sort();
 
             //Format name as: Subject (space) Groups
-            newCourse.courseName = newCourse.subject + " ";
-            newCourse.groups.ForEach(x => {
-                newCourse.courseName += x;
-            });
+            newCourse.courseName = newCourse.subject + " " + newCourse.group;
             
             return newCourse;
         }
