@@ -153,7 +153,6 @@ namespace Fitch_Scheduling_Machine
                 }
 
             });
-            Console.WriteLine(numGroups);
             return (int)Math.Ceiling(numGroups);;
         }
     }

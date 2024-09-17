@@ -76,8 +76,8 @@ Out Ed,2,G,Vero,O.C.,sec4bccq
 Out Ed Ex,2,G,Vero,O.C.,boysouted
 Music,2,G,Mike,113,boysmusic
 
-CCQ,2,D,Sylvie,226,sec4gccq
-CCQ,2,F,Sylvie,307,sec4bccq
+CCQ Sc4Girls,2,D,Sylvie,226,sec4gccq
+CCQ Sc4Boys,2,F,Sylvie,307,sec4bccq
 CW,4,D,Sylvie,226,sec5ghistory
 CW,4,G,Mo,305,sec5bhistory
 Tech,4,D,Andrew,226,sec5gscience
