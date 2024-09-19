@@ -13,7 +13,7 @@ namespace Fitch_Scheduling_Machine
         public string group = "";
         public string room = "";
         public int repetitions = 0;
-        public string link = null;
+        public string link = "";
     }
 
 }

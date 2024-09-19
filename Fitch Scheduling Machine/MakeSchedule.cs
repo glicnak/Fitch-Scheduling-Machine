@@ -22,32 +22,11 @@ namespace Fitch_Scheduling_Machine
             Course[,,] schedule2dArray= new Course[daysPerCycle,periodsPerDay,numGroups];
 
             //Populate the schedule
-            populateSchedule(schedule2dArray, allCourses, daysPerCycle, periodsPerDay, numGroups);
+            //populateSchedule(schedule2dArray, allCourses, daysPerCycle, periodsPerDay, numGroups);
+            //PopulateSchedule.printArray(schedule2dArray, allCourses, daysPerCycle, periodsPerDay, numGroups);
 
-            int totalClasses = 0;
-            // Print the 3D array with spaces between the end of each sub-array
-            for (int i = 0; i < daysPerCycle; i++)
-            {
-                Console.WriteLine($"Day {i+1}:");
-                for (int j = 0; j < periodsPerDay; j++)
-                {
-                    for (int k = 0; k < numGroups; k++)
-                    {
-                        string endingString ="";
-                        if(k<numGroups-1){
-                            endingString += ", ";
-                        }
-                        if(schedule2dArray[i,j,k] != null){
-                            Console.Write(schedule2dArray[i,j,k].courseName + endingString);
-                            totalClasses++;
-                        }
-                    }
-                    Console.WriteLine(); // Newline after each sub-array
-                }
-                Console.WriteLine(); // Extra newline for spacing between layers
-            }
-            Console.WriteLine("We managed to place " + totalClasses + " classes!");
-
+            //Recursively Populate the schedule
+            PopulateSchedule.populateSchedule(schedule2dArray, allCourses, daysPerCycle, periodsPerDay, numGroups);
 
         }
 
@@ -155,5 +134,6 @@ namespace Fitch_Scheduling_Machine
             });
             return (int)Math.Ceiling(numGroups);;
         }
+
     }
 }
