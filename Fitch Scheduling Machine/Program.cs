@@ -10,4 +10,3 @@ List<Course> allCourses = new List<Course>(MakeCourseList.makeCourseList());
 });*/
 
 MakeSchedule.makeSchedule(allCourses);
-

@@ -1,4 +1,4 @@
-5,6
+5,6,A,B,C,D,E,F,G
 
 French,4,A,Adam,224,
 Math,4,A,Mo,221,
@@ -114,11 +114,15 @@ English,7,WOTP AM,Andrew L.,111,
 Math,4,WOTP AM,Desmond,114,
 Phys Ed,2,WOTP AM,Vero,Gym,
 Job Market,2,WOTP AM,Andrew L.,111,
-Work,12,WOTP AM,Pam&Keeley,Work,
+Work1,5,WOTP AM,Pam&Keeley,Work,
+Work2,5,WOTP AM,Pam&Keeley,Work,
+Work3,2,WOTP AM,Pam&Keeley,Work,
 
 French,3,WOTP PM,Caroline,111,
 English,7,WOTP PM,Andrew L.,111,
 Math,4,WOTP PM,Desmond,114,
 Phys Ed,2,WOTP PM,Vero,Gym,
 Job Market,2,WOTP PM,Andrew L.,111,
-Work,12,WOTP PM,Pam&Keeley,Work,
+Work1,5,WOTP PM,Pam&Keeley,Work,
+Work2,5,WOTP PM,Pam&Keeley,Work,
+Work3,2,WOTP PM,Pam&Keeley,Work,

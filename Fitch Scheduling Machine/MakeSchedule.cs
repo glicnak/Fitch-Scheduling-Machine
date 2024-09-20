@@ -18,19 +18,24 @@ namespace Fitch_Scheduling_Machine
 
             int numGroups = getNumGroups(allCourses); 
 
+            List<string> allGroups = new List<string>();
+            for (int i=2;i<scheduleInfo.Length;i++){
+                allGroups.Add(scheduleInfo[i]);
+            }
+
             //Make the Jagged array of x groups in y periods in z days
             Course[,,] schedule2dArray= new Course[daysPerCycle,periodsPerDay,numGroups];
 
             //Populate the schedule
-            //populateSchedule(schedule2dArray, allCourses, daysPerCycle, periodsPerDay, numGroups);
+            //populateSchedule(schedule2dArray, allCourses, allGroups daysPerCycle, periodsPerDay, numGroups);
             //PopulateSchedule.printArray(schedule2dArray, allCourses, daysPerCycle, periodsPerDay, numGroups);
 
             //Recursively Populate the schedule
-            PopulateSchedule.populateSchedule(schedule2dArray, allCourses, daysPerCycle, periodsPerDay, numGroups);
+            PopulateSchedule.populateSchedule(schedule2dArray, allCourses, allGroups, daysPerCycle, periodsPerDay, numGroups);
 
         }
 
-        public static void populateSchedule(Course[,,] schedule2dArray, List<Course> allCourses, int daysPerCycle, int periodsPerDay, int numGroups){
+        public static void populateSchedule(Course[,,] schedule2dArray, List<Course> allCourses, List<string> allGroups, int daysPerCycle, int periodsPerDay, int numGroups){
             
         //Dictionary to ensure no course is present more than Rep times
             Dictionary<Course, int> courseCount = allCourses.ToDictionary(c => c, c =>0);
