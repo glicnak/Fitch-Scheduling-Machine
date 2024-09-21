@@ -79,7 +79,7 @@ namespace Fitch_Scheduling_Machine
 
         //Check at the end of day: any class has more repetitions than days, any teacher has more periods than periods left in total
 
-        if (nextX == daysPerCycle) // If we're at the end of 1 cycle
+        if (nextY == 2) // If we're at the end of 1 cycle
         //if (nextX == daysPerCycle && courseCount.Values.All(count => count == 0)) // If we're at the end of 1 cycle, its the last day, check if courseCount[every course] == 0
         {
             printArray(schedule2dArray, courseCount, daysPerCycle, periodsPerDay, numGroups);

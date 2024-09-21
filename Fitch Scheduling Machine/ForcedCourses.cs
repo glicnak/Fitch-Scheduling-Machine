@@ -10,7 +10,7 @@ namespace Fitch_Scheduling_Machine
         public static Dictionary<Course,string> placeCourses(List<Course> allCourses){
 
             Dictionary<Course,string> forcedCourses= new Dictionary<Course,string>(){
-                {allCourses.Find(c => c.courseName == "Out Ed A"),"0,0,0,"},
+                /*{allCourses.Find(c => c.courseName == "Out Ed A"),"0,0,0,"},
                 {allCourses.Find(c => c.courseName == "Out Ed B"),"0,0,1,"},
                 {allCourses.Find(c => c.courseName == "Out Ed C"),"0,1,0,"},
                 {allCourses.Find(c => c.courseName == "Out Ed D"),"0,1,1,"},
@@ -39,7 +39,7 @@ namespace Fitch_Scheduling_Machine
                 {allCourses.Find(c => c.courseName == "Out Ed Ex F"),"3,2,1,"},
                 {allCourses.Find(c => c.courseName == "Out Ed Ex F"),"3,2,1,"},
                 {allCourses.Find(c => c.courseName == "Out Ed Ex G"),"3,2,2,"},
-                {allCourses.Find(c => c.courseName == "Out Ed Ex G"),"3,2,2,"}            
+                {allCourses.Find(c => c.courseName == "Out Ed Ex G"),"3,2,2,"}  */          
             };
             return forcedCourses;
         }

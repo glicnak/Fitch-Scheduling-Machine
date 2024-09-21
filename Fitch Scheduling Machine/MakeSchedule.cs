@@ -27,7 +27,7 @@ namespace Fitch_Scheduling_Machine
             Course[,,] schedule2dArray= new Course[daysPerCycle,periodsPerDay,numGroups];
 
             //Populate the schedule
-            //populateSchedule(schedule2dArray, allCourses, allGroups daysPerCycle, periodsPerDay, numGroups);
+            //populateSchedule(schedule2dArray, allCourses, allGroups, daysPerCycle, periodsPerDay, numGroups);
             //PopulateSchedule.printArray(schedule2dArray, allCourses, daysPerCycle, periodsPerDay, numGroups);
 
             //Recursively Populate the schedule
