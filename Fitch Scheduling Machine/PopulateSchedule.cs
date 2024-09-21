@@ -18,12 +18,12 @@ namespace Fitch_Scheduling_Machine
         List<Course> availableCourses = new List<Course>(allCourses);
         List<Course> coursesUsedInDay = new List<Course>();
 
-        Dictionary<Course,string> forcedCourses = ForcedCourses.placeCourses(allCourses);
+        Dictionary<Course,List<int[]>> forcedCourses = ForcedCourses.placeCourses(allCourses);
 
         populateArray(schedule2dArray, forcedCourses, allGroups, courseCount, availableCourses, coursesUsedInDay, daysPerCycle, periodsPerDay, numGroups, 0, 0, 0);
     }
 
-    static bool populateArray(Course[,,] schedule2dArray, Dictionary<Course,string> forcedCourses, List<string> allGroups, Dictionary<Course, int> courseCount, List<Course> availableCourses, List<Course> coursesUsedInDay, int daysPerCycle, int periodsPerDay, int numGroups, int x, int y, int z){
+    static bool populateArray(Course[,,] schedule2dArray, Dictionary<Course,List<int[]>> forcedCourses, List<string> allGroups, Dictionary<Course, int> courseCount, List<Course> availableCourses, List<Course> coursesUsedInDay, int daysPerCycle, int periodsPerDay, int numGroups, int x, int y, int z){
 
         List<Course> newAvailableCoursesBackup = new List<Course>();
         availableCourses.ForEach(c=>{
@@ -38,25 +38,17 @@ namespace Fitch_Scheduling_Machine
         int nextX = x;
         int nextY = y;
         int nextZ = z;
-        //Do the forced class stuff here
+
+        //Checkgroups used and not used in Period
+        List<string> groupsUsedInPeriod = new List<string>();
+        for(int i=0;i<z;i++){
+            if(schedule2dArray[x,y,i].group != null){
+                groupsUsedInPeriod.Add(schedule2dArray[x,y,i].group);
+            }
+        }
 
         if (availableCourses.Count == 0){ //If there are no available courses, we're at the end of 1 period...
             //Check if every group is present at least once before moving to the next day
-            List<string> groupsUsedInPeriod = new List<string>();
-            Console.WriteLine(x + "" + y + "" + z);
-            Console.WriteLine(schedule2dArray[x,y,z-1].courseName);
-            Console.WriteLine(schedule2dArray[x,y,6].courseName);
-            Console.WriteLine(schedule2dArray[x,y,5].courseName);
-            Console.WriteLine(schedule2dArray[x,y,4].courseName);
-            Console.WriteLine(schedule2dArray[x,y,3].courseName);
-            Console.WriteLine(schedule2dArray[x,y,2].courseName);
-            Console.WriteLine(schedule2dArray[x,y,1].courseName);
-            Console.WriteLine(schedule2dArray[x,y,0].courseName);
-            for(int i=0;i<z;i++){
-                if(schedule2dArray[x,y,i].group != null){
-                    groupsUsedInPeriod.Add(schedule2dArray[x,y,i].group);
-                }
-            }
             if(!allGroups.All(group => groupsUsedInPeriod.Contains(group))){
                 return false;
             }
@@ -71,15 +63,38 @@ namespace Fitch_Scheduling_Machine
             }
             newAvailableCoursesBackup.Clear(); // Reset available courses based on usedInDay
             foreach(Course c in courseCount.Keys){
-                if(courseCount[c] > 0 && !coursesUsedInDay.Contains(c)){
+                if(courseCount[c] > 0 && !newCoursesUsedInDay.Contains(c)){
                     newAvailableCoursesBackup.Add(c);
                 }
             }
         }
 
+        //Force Add any classes
+        List<Course> forcedCoursesThisPeriod = forcedCourses
+            .Where(entry => entry.Value.Any(arr => arr.SequenceEqual([nextX,nextY])))
+            .Select(entry => entry.Key)
+            .ToList();
+
+        if(forcedCoursesThisPeriod.Count>0){
+            addCoursesToSchedule(schedule2dArray,forcedCoursesThisPeriod, nextX,nextY,nextZ, courseCount, newAvailableCoursesBackup, newCoursesUsedInDay);
+            nextZ += forcedCoursesThisPeriod.Count;
+            forcedCoursesThisPeriod.ForEach(c=>{
+                forcedCourses[c].RemoveAll(arr => arr.SequenceEqual([nextX,nextY]));
+            });
+        }
+
+        //Check if there are available courses for every group thats left
+        else{
+            List<string> groupsLeft =  allGroups.Except(groupsUsedInPeriod).ToList();
+            if(!groupsLeft.All(g => availableCourses.Any(c => c.group == g))){
+                return false;
+            }
+        }
+
         //Check at the end of day: any class has more repetitions than days, any teacher has more periods than periods left in total
 
-        if (nextY == 2) // If we're at the end of 1 cycle
+        if (nextX == 1) // If we're at the end of day X
+        //if (nextX == daysPerCycle) // If we're at the end of 1 cycle
         //if (nextX == daysPerCycle && courseCount.Values.All(count => count == 0)) // If we're at the end of 1 cycle, its the last day, check if courseCount[every course] == 0
         {
             printArray(schedule2dArray, courseCount, daysPerCycle, periodsPerDay, numGroups);

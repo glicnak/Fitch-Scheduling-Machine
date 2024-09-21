@@ -13,3 +13,18 @@ O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Schedulin
 O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.genruntimeconfig.cache
 O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\obj\Debug\net8.0\ref\Fitch Scheduling Machine.dll
 O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.sourcelink.json
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Fitch Scheduling Machine.exe
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Fitch Scheduling Machine.deps.json
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Fitch Scheduling Machine.runtimeconfig.json
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Fitch Scheduling Machine.dll
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Fitch Scheduling Machine.pdb
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.AssemblyInfoInputs.cache
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.AssemblyInfo.cs
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.csproj.CoreCompileInputs.cache
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.sourcelink.json
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.dll
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\refint\Fitch Scheduling Machine.dll
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.pdb
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.genruntimeconfig.cache
+C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\ref\Fitch Scheduling Machine.dll

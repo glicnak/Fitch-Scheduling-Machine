@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Fitch_Scheduling_Machine
-build_property.ProjectDir = O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\
+build_property.ProjectDir = c:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
