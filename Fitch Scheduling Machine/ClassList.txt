@@ -22,7 +22,7 @@ Out Ed,2,B,Vero,O.C.,abouted
 Out Ed Ex,2,B,Vero,O.C.,aboutedx
 Music,2,B,Mike,113,
 
-French,4,C,Adam,224,
+French,4,C,Sylvie,224,
 Math,4,C,Mo,221,
 English,4,C,Cindy,224,
 Science,4,C,Carole,214,
@@ -33,7 +33,7 @@ Out Ed,2,C,Chantal,O.C.,sec4gccq
 Out Ed Ex,2,C,Chantal,O.C.,cdoutedx
 Art,2,C,Desmond,114,
 
-French,4,D,Adam,224,
+French,4,D,Chantal,224,
 Math,4,D,Andrew,226,
 English,4,D,Cindy,224,
 Science,4,D,Carole,214,sec5gscience
