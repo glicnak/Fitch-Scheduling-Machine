@@ -31,7 +31,8 @@ namespace Fitch_Scheduling_Machine
             //PopulateSchedule.printArray(schedule2dArray, allCourses, daysPerCycle, periodsPerDay, numGroups);
 
             //Recursively Populate the schedule
-            PopulateSchedule.populateSchedule(schedule2dArray, allCourses, allGroups, daysPerCycle, periodsPerDay, numGroups);
+            List<Course> orderedCourses = allCourses.OrderBy(course => course.repetitions).ToList();
+            PopulateSchedule.populateSchedule(schedule2dArray, orderedCourses, allGroups, daysPerCycle, periodsPerDay, numGroups);
 
         }
 
