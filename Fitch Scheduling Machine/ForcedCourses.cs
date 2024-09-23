@@ -17,6 +17,8 @@ namespace Fitch_Scheduling_Machine
                 {allCourses.Find(c => c.courseName == "Out Ed E"), new List<int[]> {new int[] {0,2}, new int[] {4,5}}},
                 {allCourses.Find(c => c.courseName == "Out Ed F"), new List<int[]> {new int[] {0,2}, new int[] {4,5}}},
                 {allCourses.Find(c => c.courseName == "Out Ed G"), new List<int[]> {new int[] {0,2}, new int[] {4,5}}},
+                {allCourses.Find(c => c.courseName == "CCQ Sc4Boys F"), new List<int[]> {new int[] {0,2}, new int[] {4,5}}},
+                {allCourses.Find(c => c.courseName == "CCQ Sc4Boys G"), new List<int[]> {new int[] {0,2}, new int[] {4,5}}},
                 
                 {allCourses.Find(c => c.courseName == "Out Ed Ex A"), new List<int[]> {new int[] {1,1}, new int[] {1,2}}},
                 {allCourses.Find(c => c.courseName == "Out Ed Ex B"), new List<int[]> {new int[] {1,1}, new int[] {1,2}}},
@@ -32,7 +34,14 @@ namespace Fitch_Scheduling_Machine
 
                 {allCourses.Find(c => c.courseName == "Work1 WOTP PM"), new List<int[]> {new int[] {0,0}, new int[] {1,0}, new int[] {2,0}, new int[] {3,0}, new int[] {4,0}}},
                 {allCourses.Find(c => c.courseName == "Work2 WOTP PM"), new List<int[]> {new int[] {0,1}, new int[] {1,1}, new int[] {2,1}, new int[] {3,1}, new int[] {4,1}}},
-                {allCourses.Find(c => c.courseName == "Work3 WOTP PM"), new List<int[]> {new int[] {1,2}, new int[] {3,2}}}
+                {allCourses.Find(c => c.courseName == "Work3 WOTP PM"), new List<int[]> {new int[] {1,2}, new int[] {3,2}}},
+
+                //Manually inputting the schedule:
+                {allCourses.Find(c => c.courseName == "Science F"), new List<int[]> {new int[] {0,5}, new int[] {1,0}, new int[] {3,0}, new int[] {4,1}}},
+                {allCourses.Find(c => c.courseName == "Science G"), new List<int[]> {new int[] {0,5}, new int[] {1,0}, new int[] {3,0}, new int[] {4,1}}},
+                {allCourses.Find(c => c.courseName == "Tech F"), new List<int[]> {new int[] {0,5}, new int[] {1,0}, new int[] {3,0}, new int[] {4,1}}},
+                {allCourses.Find(c => c.courseName == "Tech G"), new List<int[]> {new int[] {0,5}, new int[] {1,0}, new int[] {3,0}, new int[] {4,1}}},
+
             };
             return forcedCourses;
         }

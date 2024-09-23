@@ -139,7 +139,10 @@ namespace Fitch_Scheduling_Machine
             else {
                 linkedCourses.Add(c);
             }
-            
+
+            //Check that there are at least as many days as courseCount left
+            //if(linkedCourses.All(l =>courseCount[l]-1 < daysPerCycle-nextX)){
+                //Add courses
                 addCoursesToSchedule(schedule2dArray, allCourses, linkedCourses, nextX,nextY,nextZ, courseCount, newAvailableCourses, newCoursesUsedInDay);
                 nextZ += linkedCourses.Count-1;
                 // Recurse to the next cell
@@ -152,6 +155,7 @@ namespace Fitch_Scheduling_Machine
                 nextZ += -(linkedCourses.Count-1);
                 removeCoursesFromSchedule(schedule2dArray,linkedCourses, nextX, nextY, nextZ, courseCount, availableCourses, newCoursesUsedInDay);
                 Console.WriteLine("Backtrack!");
+            //}
         }
         
         return false;
