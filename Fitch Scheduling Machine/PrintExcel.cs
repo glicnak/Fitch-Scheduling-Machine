@@ -38,13 +38,16 @@ class PrintExcel
         string[,] array2D = Flatten3DLayerTo2DString(schedule2dArray);
 
         // Print the 2D array
-        //Print2DArray(array2D);
+        Print2DArray(array2D);
 
         // Transpose the 2D array
         string[,] transposedArray = Transpose2DArray(array2D);
 
+        // Print the 2D transposed array
+        Print2DArray(transposedArray);
+
         // Write the 2D array to a CSV file
-        Write2DArrayToCsv(transposedArray, "test2D.csv");
+        Write2DArrayToCsv(transposedArray, "scheduleA.csv");
 
         //convert to xlsx & format
         FormatExcel.Main(transposedArray, x);
@@ -83,6 +86,7 @@ class PrintExcel
 
             // New 2D array will have 'layers' rows and 'rows * cols' columns
             Course[,] array2D = new Course[layers, rows * cols];
+            string[,] array2DCourseNames = new string[layers, rows * cols];
 
             for (int k = 0; k < layers; k++)
             {
@@ -93,23 +97,17 @@ class PrintExcel
                         // Flatten the 2D layer into a single row of the 2D array
                         int index = i * cols + j;
                         array2D[k, index] = array3D[k, i, j];
+                        if(array2D[k,index] != null ){
+                            array2DCourseNames[k,index] = array2D[k,index].courseName;
+                        }
                     }
-                }
-            }
-
-            string[,] array2DCourseNames = new string[,]{};
-            for (int k = 0; k < layers; k++)
-            {
-                for (int i = 0; i < rows*cols; i++)
-                {
-                    array2DCourseNames[k,i] = array2D[k,i].courseName;
                 }
             }
 
             return array2DCourseNames;
         }
 
-        static void Print2DArray(Course[,] array2D)
+        static void Print2DArray(string[,] array2D)
         {
             int rows = array2D.GetLength(0);
             int cols = array2D.GetLength(1);
