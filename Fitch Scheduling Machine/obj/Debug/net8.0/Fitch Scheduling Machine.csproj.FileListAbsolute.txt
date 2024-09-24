@@ -50,3 +50,23 @@ C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduli
 C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.csproj.AssemblyReference.cache
 C:\Users\adaml\OneDrive\Documents\Github\Fitch-Scheduling-Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Sc.378E904D.Up2Date
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\EPPlus.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\EPPlus.Interfaces.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\System.Drawing.Common.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Scheduling Machine.csproj.AssemblyReference.cache
+O:\averrillo\OneDrive - Sir Wilfrid Laurier School Board\Desktop\Fitch Scheduling Machine\Fitch Scheduling Machine\obj\Debug\net8.0\Fitch Sc.378E904D.Up2Date

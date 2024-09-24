@@ -106,7 +106,7 @@ namespace Fitch_Scheduling_Machine
                 addForcedCourse("Tech G",day,period,allCourses,forcedCourses);
                 addForcedCourse("CCQ NV",day,period,allCourses,forcedCourses);
                 addForcedCourse("History JS",day,period,allCourses,forcedCourses);
-                addForcedCourse("French WOTP AM",day,period,allCourses,forcedCourses);
+                addForcedCourse("English WOTP AM",day,period,allCourses,forcedCourses);
                 addForcedCourse("Work1 WOTP PM",day,period,allCourses,forcedCourses);
             period = 1; //Period 2
                 addForcedCourse("Out Ed Ex A",day,period,allCourses,forcedCourses);
@@ -117,7 +117,7 @@ namespace Fitch_Scheduling_Machine
                 addForcedCourse("English F",day,period,allCourses,forcedCourses);
                 addForcedCourse("CCQ G",day,period,allCourses,forcedCourses);
                 addForcedCourse("English NV",day,period,allCourses,forcedCourses);
-                addForcedCourse("Science JS",day,period,allCourses,forcedCourses);
+                addForcedCourse("Math JS",day,period,allCourses,forcedCourses);
                 addForcedCourse("Math WOTP AM",day,period,allCourses,forcedCourses);
                 addForcedCourse("Work2 WOTP PM",day,period,allCourses,forcedCourses);
             period = 2; //Period 3
@@ -169,7 +169,7 @@ namespace Fitch_Scheduling_Machine
                 addForcedCourse("CW F",day,period,allCourses,forcedCourses);
                 addForcedCourse("CW G",day,period,allCourses,forcedCourses);
                 addForcedCourse("History NV",day,period,allCourses,forcedCourses);
-                addForcedCourse("Science JS",day,period,allCourses,forcedCourses);
+                addForcedCourse("Math JS",day,period,allCourses,forcedCourses);
                 addForcedCourse("Work2 WOTP AM",day,period,allCourses,forcedCourses);
                 addForcedCourse("Phys Ed WOTP PM",day,period,allCourses,forcedCourses);
             day = 2; // Day 3
@@ -245,7 +245,6 @@ namespace Fitch_Scheduling_Machine
                 addForcedCourse("Phys Ed E",day,period,allCourses,forcedCourses);
                 addForcedCourse("Phys Ed F",day,period,allCourses,forcedCourses);
                 addForcedCourse("Phys Ed G",day,period,allCourses,forcedCourses);
-                addForcedCourse("Tech D",day,period,allCourses,forcedCourses);
                 addForcedCourse("Science NV",day,period,allCourses,forcedCourses);
                 addForcedCourse("French JS",day,period,allCourses,forcedCourses);
                 addForcedCourse("Work3 WOTP AM",day,period,allCourses,forcedCourses);
@@ -378,7 +377,7 @@ namespace Fitch_Scheduling_Machine
                 addForcedCourse("CW D",day,period,allCourses,forcedCourses);
                 addForcedCourse("Math NV",day,period,allCourses,forcedCourses);
                 addForcedCourse("Math JS",day,period,allCourses,forcedCourses);
-                addForcedCourse("English WOTP AM",day,period,allCourses,forcedCourses);
+                addForcedCourse("Job Market WOTP AM",day,period,allCourses,forcedCourses);
                 addForcedCourse("French WOTP PM",day,period,allCourses,forcedCourses);
             period = 4; //Period 5
                 addForcedCourse("French A",day,period,allCourses,forcedCourses);
@@ -394,7 +393,7 @@ namespace Fitch_Scheduling_Machine
                 addForcedCourse("Art NV",day,period,allCourses,forcedCourses);
                 addForcedCourse("Science JS",day,period,allCourses,forcedCourses);
                 addForcedCourse("Work1 WOTP AM",day,period,allCourses,forcedCourses);
-                addForcedCourse("Job Market WOTP PM",day,period,allCourses,forcedCourses);
+                addForcedCourse("English WOTP PM",day,period,allCourses,forcedCourses);
             period = 5; //Period 6
                 addForcedCourse("CCQ A",day,period,allCourses,forcedCourses);
                 addForcedCourse("Math B",day,period,allCourses,forcedCourses);
@@ -421,10 +420,12 @@ namespace Fitch_Scheduling_Machine
             if (forcedCourses.ContainsKey(course)){
                 // If the key exists, add the value to the existing value
                 forcedCourses[course].Add(new int[] {day,period});
+                //Console.WriteLine("added: " + course.courseName + " to day " + (day+1) + " and period " + (period+1));
             }
             else{
                 // If the key does not exist, add the key with the value
                 forcedCourses.Add(course, new List<int[]> {new int[]{day,period}});
+                //Console.WriteLine("added: " + course.courseName + " to day " + (day+1) + " and period " + (period+1));
             }
         }
     }

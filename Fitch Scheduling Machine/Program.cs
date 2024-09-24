@@ -9,4 +9,6 @@ List<Course> allCourses = new List<Course>(MakeCourseList.makeCourseList());
     Console.WriteLine(x.courseName + x.repetitions);
 });*/
 
-MakeSchedule.makeSchedule(allCourses);
+Course[,,] schedule3dArray = CreateSchedule.makeSchedule(allCourses);
+
+//PrintExcel.Main(schedule3dArray);

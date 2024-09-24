@@ -87,8 +87,7 @@ namespace Fitch_Scheduling_Machine
 
         public static string[] readFile(string infoRequest){
             // Path to the text file
-            string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            string filePath = Path.Combine(basePath, "..","..","..","ClassList.txt");
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..","ClassList.txt");
 
             // Read all lines from the file
             string[] fileLines = File.ReadAllLines(filePath);
