@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fitch Scheduling Machine")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca1176c6cb795a147bd5b091c67ef883520a9dd3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b0151c403d41d86616f108e5a8eac58da9800bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Fitch Scheduling Machine")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Fitch Scheduling Machine")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

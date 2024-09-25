@@ -1,14 +1,14 @@
-Out Ed A,CCQ NV,French WOTP AM,Math C,
-Out Ed B,Work1 WOTP PM,Work1 WOTP PM,Art JS,
-Math C,English WOTP AM,History E,Work1 WOTP PM,
-English D,French E,English F,History B,
-Science E,Science F,French G,French A,
-CCQ F,Science G,English NV,French E,
-Math G,Tech F,Science D,Science F,
-CCQ NV,Tech G,Tech D,Science G,
-Art JS,History JS,French C,Tech F,
-French WOTP AM,History A,Phys Ed A,Tech G,
-Work1 WOTP PM,English B,Phys Ed B,CCQ D,
+Out Ed A,CCQ NV,French WOTP AM,Math C,CCQ F
+Out Ed B,Work1 WOTP PM,Work1 WOTP PM,Art JS,French WOTP AM
+Math C,English WOTP AM,History E,Work1 WOTP PM,Work1 WOTP PM
+English D,French E,English F,History B,English JS
+Science E,Science F,French G,French A,History B
+CCQ F,Science G,English NV,French E,Science C
+Math G,Tech F,Science D,Science F,Phys Ed NV
+CCQ NV,Tech G,Tech D,Science G,English A
+Art JS,History JS,French C,Tech F,English G
+French WOTP AM,History A,Phys Ed A,Tech G,French D
+Work1 WOTP PM,English B,Phys Ed B,CCQ D,Math E
 ,Phys Ed C,Music JS,Music NV,
 ,Phys Ed D,,Phys Ed WOTP AM,
 ,,,,
@@ -34,17 +34,17 @@ Work2 WOTP PM,,Music NV,Out Ed Ex G,English B
 ,,,,
 ,,,,
 ,,,,
-English D,English WOTP AM,Science A,English WOTP AM,French B
-Math A,French JS,Science JS,Science C,English A
-History B,English C,Math WOTP AM,Math D,History C
-Science C,Out Ed Ex A,Math F,History JS,Math D
-Out Ed E,Out Ed Ex B,English WOTP PM,History A,French F
-Out Ed F,Science D,Math B,English B,CCQ G
-Out Ed G,Art E,CCQ E,Work3 WOTP PM,French WOTP PM
-CCQ Sc4Boys F,Music F,English G,Math NV,English E
-CCQ Sc4Boys G,Music G,Out Ed NV,Out Ed Ex E,CCQ JS
-History NV,Tech D,Out Ed Ex C,Out Ed Ex F,Science NV
-Science JS,Out Ed NV,Out Ed Ex D,Out Ed Ex G,Phys Ed WOTP AM
+English D,English WOTP AM,Science A,English WOTP AM,English A
+Math A,French JS,Science JS,Science C,History C
+History B,English C,Math WOTP AM,Math D,French WOTP PM
+Science C,Out Ed Ex A,Math F,History JS,English E
+Out Ed E,Out Ed Ex B,English WOTP PM,History A,Science NV
+Out Ed F,Science D,Math B,English B,
+Out Ed G,Art E,CCQ E,Work3 WOTP PM,
+CCQ Sc4Boys F,Music F,English G,Math NV,
+CCQ Sc4Boys G,Music G,Out Ed NV,Out Ed Ex E,
+History NV,Tech D,Out Ed Ex C,Out Ed Ex F,
+Science JS,Out Ed NV,Out Ed Ex D,Out Ed Ex G,
 Math WOTP AM,Work3 WOTP PM,,,
 Job Market WOTP PM,,,,
 ,,,,
@@ -52,57 +52,57 @@ Job Market WOTP PM,,,,
 ,,,,
 ,,,,
 ,,,,
-Science E,Math C,English D,English D,Out Ed A
-French A,CCQ B,English JS,History E,Out Ed B
-CCQ B,History A,Job Market WOTP PM,Math A,Math C
-Art C,Math JS,Work1 WOTP AM,Math F,Science E
-Music D,French D,French NV,French G,Math G
-Math F,Phys Ed E,History A,French JS,English F
-French G,Phys Ed F,Art E,Job Market WOTP AM,History D
-Phys Ed NV,Phys Ed G,Music F,Science B,CW D
-French JS,Math NV,Music G,Math WOTP PM,Math JS
-Work1 WOTP AM,Job Market WOTP AM,Science B,French C,Math NV
-English WOTP PM,French WOTP PM,CCQ C,Science NV,Job Market WOTP AM
-,,,,French WOTP PM
+Science E,Math C,English D,English D,French WOTP PM
+French A,CCQ B,English JS,History E,
+CCQ B,History A,Job Market WOTP PM,Math A,
+Art C,Math JS,Work1 WOTP AM,Math F,
+Music D,French D,French NV,French G,
+Math F,Phys Ed E,History A,French JS,
+French G,Phys Ed F,Art E,Job Market WOTP AM,
+Phys Ed NV,Phys Ed G,Music F,Science B,
+French JS,Math NV,Music G,Math WOTP PM,
+Work1 WOTP AM,Job Market WOTP AM,Science B,French C,
+English WOTP PM,French WOTP PM,CCQ C,Science NV,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
-English A,Math G,French B,Science JS,Out Ed C
-Math B,History E,Math A,Work1 WOTP AM,Out Ed D
-History C,Work1 WOTP AM,Science C,English WOTP PM,CCQ Sc4Girls D
-Math D,English A,English WOTP PM,French NV,Art NV
-CCQ E,French F,French F,French D,Science JS
-French F,Out Ed JS,English G,History F,French A
-English G,English C,Work2 WOTP AM,History G,Work1 WOTP AM
-French NV,English NV,History D,CW F,English WOTP PM
-Out Ed JS,Science B,CW D,CW G,Science B
-Work2 WOTP AM,CCQ D,Math NV,Phys Ed A,English E
-Phys Ed WOTP PM,Math WOTP PM,Math E,Phys Ed B,History F
-,,Phys Ed JS,Math E,History G
-,,,CCQ C,CW F
-,,,,CW G
+,,,,
+English A,Math G,French B,Science JS,English E
+Math B,History E,Math A,Work1 WOTP AM,
+History C,Work1 WOTP AM,Science C,English WOTP PM,
+Math D,English A,English WOTP PM,French NV,
+CCQ E,French F,French F,French D,
+French F,Out Ed JS,English G,History F,
+English G,English C,Work2 WOTP AM,History G,
+French NV,English NV,History D,CW F,
+Out Ed JS,Science B,CW D,CW G,
+Work2 WOTP AM,CCQ D,Math NV,Phys Ed A,
+Phys Ed WOTP PM,Math WOTP PM,Math E,Phys Ed B,
+,,Phys Ed JS,Math E,
+,,,CCQ C,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
-English WOTP PM,French B,Science A,English JS,CCQ F
-Art A,History NV,History B,History NV,French WOTP AM
-Music B,Work2 WOTP AM,French JS,Job Market WOTP PM,Work1 WOTP PM
-English C,Phys Ed WOTP PM,Work3 WOTP AM,Math F,English JS
-History D,Math JS,French D,French G,History B
-CW D,Science D,Phys Ed E,Work2 WOTP AM,Science C
-French E,Tech D,Phys Ed F,Art A,Out Ed E
-Science F,CCQ A,Phys Ed G,Music B,Out Ed F
-Science G,French C,Math WOTP PM,Phys Ed C,Out Ed G
-Tech F,English E,French C,Phys Ed D,CCQ Sc4Boys F
-Tech G,History F,Science NV,English E,CCQ Sc4Boys G
-English NV,History G,,,Phys Ed NV
-History JS,CW F,,,English A
-Work3 WOTP AM,CW G,,,Math B
-,,,,History C
-,,,,English G
-,,,,Work2 WOTP AM
-,,,,History JS
+,,,,
+English WOTP PM,French B,Science A,English JS,History C
+Art A,History NV,History B,History NV,Science NV
+Music B,Work2 WOTP AM,French JS,Job Market WOTP PM,
+English C,Phys Ed WOTP PM,Work3 WOTP AM,Math F,
+History D,Math JS,French D,French G,
+CW D,Science D,Phys Ed E,Work2 WOTP AM,
+French E,Tech D,Phys Ed F,Art A,
+Science F,CCQ A,Phys Ed G,Music B,
+Science G,French C,Math WOTP PM,Phys Ed C,
+Tech F,English E,French C,Phys Ed D,
+Tech G,History F,Science NV,English E,
+English NV,History G,,,
+History JS,CW F,,,
+Work3 WOTP AM,CW G,,,
+,,,,
+,,,,
+,,,,
+,,,,
