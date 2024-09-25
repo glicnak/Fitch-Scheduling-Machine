@@ -5,56 +5,34 @@ using System.Text;
 
 class PrintExcel
 {
-    public static void Main(Course[,,] schedule2dArray)
+    public static void Main(string[,,] schedule3dArrayStrings)
     {
-        // // ****LINES 10 to 27 are generating a generic array REPLACE these with the array****
-        // // Declare and initialize a 3D array with dimensions 2x3x4
-        // int[,,] array3D = new int[5, 6, 11];
-
-        // // Assign values to the array
-        // int value = 1; // Start filling from value 1
-
-        // // Fill the array with sequential values
-        // for (int i = 0; i < array3D.GetLength(0); i++) // Iterate over layers
-        // {
-        //     for (int j = 0; j < array3D.GetLength(1); j++) // Iterate over rows
-        //     {
-        //         for (int k = 0; k < array3D.GetLength(2); k++) // Iterate over columns
-        //         {
-        //             array3D[i, j, k] = value++;
-        //         }
-        //     }
-        // }
-
         // Print the entire 3D array
-        //Print3DArray(schedule2dArray);
+        //Print3DArray(schedule3dArrayStrings);
 
-        int x = schedule2dArray.GetLength(2);
+        int x = schedule3dArrayStrings.GetLength(2);
 
         // write the array to a csv file
-        Write3DArrayToCsv(schedule2dArray, "test3D.csv");
+        Write3DArrayToCsv(schedule3dArrayStrings, "ScheduleA3D.csv");
 
         // Convert the 3D array to a 2D array by flattening each layer into a single row
-        string[,] array2D = Flatten3DLayerTo2DString(schedule2dArray);
+        string[,] array2D = Flatten3DLayerTo2D(schedule3dArrayStrings);
 
         // Print the 2D array
-        Print2DArray(array2D);
+        //Print2DArray(array2D);
 
         // Transpose the 2D array
         string[,] transposedArray = Transpose2DArray(array2D);
 
-        // Print the 2D transposed array
-        Print2DArray(transposedArray);
-
         // Write the 2D array to a CSV file
-        Write2DArrayToCsv(transposedArray, "scheduleA.csv");
+        Write2DArrayToCsv(transposedArray, "scheduleA2D.csv");
 
         //convert to xlsx & format
         FormatExcel.Main(transposedArray, x);
 
     }
 
-    static void Print3DArray(Course[,,] array3d)
+    static void Print3DArray(string[,,] array3d)
     {
         // layers = days, columns = periods, rows = groups/classes
         int layers = array3d.GetLength(0);
@@ -78,15 +56,14 @@ class PrintExcel
     }
 
 
-    static string[,] Flatten3DLayerTo2DString(Course[,,] array3D)
+    static string[,] Flatten3DLayerTo2D(string[,,] array3D)
         {
             int layers = array3D.GetLength(0);
             int rows = array3D.GetLength(1);
             int cols = array3D.GetLength(2);
 
             // New 2D array will have 'layers' rows and 'rows * cols' columns
-            Course[,] array2D = new Course[layers, rows * cols];
-            string[,] array2DCourseNames = new string[layers, rows * cols];
+            string[,] array2D = new string[layers, rows * cols];
 
             for (int k = 0; k < layers; k++)
             {
@@ -97,14 +74,11 @@ class PrintExcel
                         // Flatten the 2D layer into a single row of the 2D array
                         int index = i * cols + j;
                         array2D[k, index] = array3D[k, i, j];
-                        if(array2D[k,index] != null ){
-                            array2DCourseNames[k,index] = array2D[k,index].courseName;
-                        }
                     }
                 }
             }
 
-            return array2DCourseNames;
+            return array2D;
         }
 
         static void Print2DArray(string[,] array2D)
@@ -141,7 +115,7 @@ class PrintExcel
             return transposed;
         }
 
-    static void Write3DArrayToCsv(Course[,,] array3d, string filePath)
+    static void Write3DArrayToCsv(string[,,] array3d, string filePath)
     {
         int layers = array3d.GetLength(0);
         int rows = array3d.GetLength(1);
@@ -166,8 +140,7 @@ class PrintExcel
         }
 
         // Write the content to the CSV file
-        string filePathcsv = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..","ScheduleA.csv");
-
+        string filePathcsv = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..","ScheduleA3D.csv");
         File.WriteAllText(filePathcsv, sb.ToString());
     }
 
@@ -191,12 +164,9 @@ class PrintExcel
             }
 
             // Write the content to the CSV file
-            string filePathxlsx = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..","ScheduleA.xlsx");
-            File.WriteAllText(filePathxlsx, sb.ToString());
+            string filePathcsv2 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..","ScheduleA2D.csv");
+            File.WriteAllText(filePathcsv2, sb.ToString());
 
         }
 
     }
-
-
-

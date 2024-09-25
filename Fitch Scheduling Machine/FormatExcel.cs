@@ -4,7 +4,7 @@ namespace Fitch_Scheduling_Machine;
 using System;
 using System.Drawing;
 using System.IO;
-//using DocumentFormat.OpenXml.Drawing.Charts;
+// using DocumentFormat.OpenXml.Drawing.Charts;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 
@@ -14,11 +14,11 @@ using OfficeOpenXml.Style;
         
         public static void Main(string[,] transposedArray, int x){
 
-            string csvFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..","ScheduleA.csv");
+            string filePathcsv = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..","ScheduleA2D.csv");
             string xlsxFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..","ScheduleA.xlsx");
 
             // Read the CSV file
-            var csvLines = File.ReadAllLines(csvFilePath);
+            var csvLines = File.ReadAllLines(filePathcsv);
 
             using (var package = new ExcelPackage())
             {
@@ -37,6 +37,12 @@ using OfficeOpenXml.Style;
                 // Save the Excel file
                 FileInfo fileInfo2 = new FileInfo(xlsxFilePath);
                 package.SaveAs(fileInfo2);
+
+                // var fileInfo2 = new FileInfo(xlsxFilePath);
+                // using (var package2 = new ExcelPackage(fileInfo2));
+
+
+
             }
 
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..","..","ScheduleA.xlsx");

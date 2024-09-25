@@ -42,11 +42,24 @@ namespace Fitch_Scheduling_Machine
                 .Where(entry => entry.Value > 0)
                 .Select(entry => entry.Key)
                 .ToList();
+
             //List of courses used in a day
             List<Course> coursesUsedInDay = new List<Course>();
 
+            //List of groups used in a period
+            List<string> groupsUsedInPeriod = new List<string>();
+                
+            //update available Courses and groups used by looking forward into the first period
+            for(int i=0;i<numGroups;i++){
+                if(schedule3dArray[0,0,i] != null && !coursesUsedInDay.Contains(schedule3dArray[0,0,i])){
+                    removeAssociatedCourses(schedule3dArray,allCourses,schedule3dArray[0,0,i],availableCourses);
+                    groupsUsedInPeriod.Add(schedule3dArray[0,0,i].group);
+                    coursesUsedInDay.Add(schedule3dArray[0,0,i]);
+                }
+            }
+
             //Populate the schedule
-            populateSchedule(schedule3dArray, allCourses, allGroups, courseCount, availableCourses, coursesUsedInDay, daysPerCycle, periodsPerDay, numGroups,0,0,0);
+            populateSchedule(schedule3dArray, allCourses, allGroups, courseCount, availableCourses, groupsUsedInPeriod, coursesUsedInDay, daysPerCycle, periodsPerDay, numGroups,0,0,0);
 
             //Debug print extra or underused courses
             foreach(var entry in courseCount){
@@ -121,66 +134,155 @@ namespace Fitch_Scheduling_Machine
             }
         }
 
-        public static bool populateSchedule(Course[,,] schedule3dArray, List<Course> allCourses, List<string> allGroups, Dictionary<Course, int> courseCount, List<Course> availableCourses, List<Course> coursesUsedInDay, int daysPerCycle, int periodsPerDay, int numGroups, int x, int y, int z){
-            List<Course> availableCoursesBackup = new List<Course>(availableCourses);
-            List<Course> coursesUsedInDayBackup = new List<Course>(coursesUsedInDay);
-
+        public static bool populateSchedule(Course[,,] schedule3dArray, List<Course> allCourses, List<string> allGroups, Dictionary<Course, int> courseCount, List<Course> availableCourses, List<string> groupsUsedInPeriod, List<Course> coursesUsedInDay, int daysPerCycle, int periodsPerDay, int numGroups, int x, int y, int z){
             // Calculate next index
             int nextX = x;
             int nextY = y;
-            int nextZ = z+1;
-
-            //update available Courses by looking forward into the period
-
-            //Backup available courses and courses used in Day... then update courses used in day in the nextperiod/nextday checks... maybe I can just back them up after those checks?
-
-            //Checkgroups used and not used in Period
-            List<string> groupsUsedInPeriod = new List<string>();
-            for(int i=0;i<nextZ;i++){
-                if(schedule3dArray[x,y,i].group != null){
-                    groupsUsedInPeriod.Add(schedule3dArray[x,y,i].group);
-                }
-            }
-
-            //Check if there are available courses for every group thats left, otherwise return false
-            List<string> groupsLeft =  allGroups.Except(groupsUsedInPeriod).ToList();
-            if(!groupsLeft.All(g => availableCoursesBackup.Any(c => c.group == g))){
-                return false;
-            }
+            int nextZ = z+1;          
 
             //Check for a change in period or day
-            if (availableCoursesBackup.Count == 0){ //If there are no available courses, we're at the end of 1 period...
+            if (availableCourses.Count == 0){ //If there are no available courses, we're at the end of 1 period...
                 //Check if every group is present at least once before moving to the next day
                 if(!allGroups.All(group => groupsUsedInPeriod.Contains(group))){
                     return false;
                 }
-                //Move to the next day
+                //Move to the next period
                 nextZ = 0;
                 nextY = y+1;
                 if (nextY == periodsPerDay){ //If we're at the end of 1 day
                     //Go to next day
                     nextX = x+1;
                     nextY = 0;
-                    coursesUsedInDayBackup.Clear();//Reset courses used in a day at the start of the day
+                    coursesUsedInDay.Clear();//Reset courses used in a day at the start of the day
                 }
-                availableCoursesBackup.Clear(); // Reset available courses based on usedInDay
-                foreach(Course c in courseCount.Keys){
-                    if(courseCount[c] > 0 && !coursesUsedInDayBackup.Contains(c)){
-                    // if we want to be able to double up courses, just use  --  if(courseCount[c] > 0){
-                        availableCoursesBackup.Add(c);
+                availableCourses.Clear(); // Reset available courses based on usedInDay
+                groupsUsedInPeriod.Clear();
+                availableCourses = courseCount
+                    .Where(entry => entry.Value > 0)
+                    .Select(entry => entry.Key)
+                    .ToList();
+                //Check for end of cycle
+                if (nextX == daysPerCycle) // If we're at the end of 1 cycle
+                //if (nextX == daysPerCycle && courseCount.Values.All(count => count == 0)) // If we're at the end of 1 cycle, its the last day, check if courseCount[every course] == 0
+                {
+                    Console.WriteLine("It Worked!");
+                    return true;
+                }
+
+                //update available Courses and groups used by looking forward into the period
+                for(int i=0;i<numGroups;i++){
+                    if(schedule3dArray[nextX,nextY,i] != null){
+                        nextZ++;
+                        removeAssociatedCourses(schedule3dArray,allCourses,schedule3dArray[nextX,nextY,i],availableCourses);
+                        if(!groupsUsedInPeriod.Contains(schedule3dArray[nextX,nextY,i].group)){
+                            groupsUsedInPeriod.Add(schedule3dArray[nextX,nextY,i].group);
+                        }
+                        if(!coursesUsedInDay.Contains(schedule3dArray[nextX,nextY,i])){
+                            coursesUsedInDay.Add(schedule3dArray[nextX,nextY,i]);
+                        }
                     }
+                }
+
+                //Check if there are available courses for every group thats left, otherwise return false
+                List<string> groupsLeft =  allGroups.Except(groupsUsedInPeriod).ToList();
+                if(!groupsLeft.All(g => availableCourses.Any(c => c.group == g))){
+                    return false;
                 }
             }
 
-            //Check for end of cycle
-            if (nextX == daysPerCycle) // If we're at the end of 1 cycle
-            //if (nextX == daysPerCycle && courseCount.Values.All(count => count == 0)) // If we're at the end of 1 cycle, its the last day, check if courseCount[every course] == 0
+            //If there are still no available courses, do it all again
+            if(availableCourses.Count==0){
+                populateSchedule(schedule3dArray, allCourses, allGroups, courseCount, availableCourses, groupsUsedInPeriod, coursesUsedInDay, daysPerCycle, periodsPerDay, numGroups, nextX, nextY, nextZ);
+            }
+
+            //Backup available courses and courses used in a day
+            List<Course> availableCoursesBackup = new List<Course>(availableCourses);
+            List<Course> coursesUsedInDayBackup = new List<Course>(coursesUsedInDay);
+
+            // Try placing each string in the current cell
+            foreach (Course c in availableCourses)
             {
-                return true;
+
+                //Make a list of all courses with the same link (or just the class itself if it doesn't have one)
+                List<Course> linkedCourses = new List<Course>();
+                if (c.link != null && c.link !=""){
+                    availableCourses.ForEach(a=>{
+                        if (c.link == a.link){
+                            linkedCourses.Add(a);
+                        }
+                    });
+                }
+                else {
+                    linkedCourses.Add(c);
+                }
+
+                //Check that there are at least as many days as courseCount left
+                if(linkedCourses.All(l =>courseCount[l]-1 < daysPerCycle-nextX)){
+                    //Add courses
+                    addCoursesToSchedule(schedule3dArray, allCourses, linkedCourses, nextX,nextY,nextZ, courseCount, availableCoursesBackup, coursesUsedInDayBackup, groupsUsedInPeriod);
+                    nextZ += linkedCourses.Count-1;
+                    
+                    // Recurse to the next cell
+                    if (populateSchedule(schedule3dArray, allCourses, allGroups, courseCount, availableCoursesBackup, groupsUsedInPeriod, coursesUsedInDayBackup, daysPerCycle, periodsPerDay, numGroups, nextX, nextY, nextZ))
+                    {
+                        return true; // Comment this if you want to see all configurations, not just the first one
+                    }
+
+                    // Backtrack
+                    nextZ += -(linkedCourses.Count-1);
+                    removeCoursesFromSchedule(schedule3dArray,linkedCourses, nextX, nextY, nextZ, courseCount, coursesUsedInDay, groupsUsedInPeriod);
+                    Console.WriteLine("Backtrack!");
+                }
+
             }
 
             //Return false if we reach the end
             return false;
+        }
+
+        public static void removeAssociatedCourses (Course[,,]schedule3dArray, List<Course> allCourses, Course course, List<Course> availableCourses){
+            //Remove it from available courses
+            availableCourses.Remove(course);
+
+            //Remove all courses with the same group, teacher, room or link from available courses
+            List<Course> associatedClasses = new List<Course>();
+            allCourses.ForEach(c=>{
+                //if(c.teacher == course.teacher || c.group == course.group || c.room == course.room){
+                if(c.teacher == course.teacher || c.group == course.group){
+                    associatedClasses.Add(c);
+                }
+            });
+            associatedClasses.ForEach(c=>{
+                availableCourses.RemoveAll(d => d.link != null && d.link != "" && d.link == c.link);
+                availableCourses.Remove(c);
+            });
+        }
+
+        public static void addCoursesToSchedule (Course[,,]schedule3dArray, List<Course> allCourses, List<Course> linkedCourses, int x, int y, int z, Dictionary<Course, int> courseCount, List<Course> availableCourses, List<Course> coursesUsedInDay, List<string> groupsUsedInPeriod){
+            //Add courses to schedule, decrement course count, and add it to courses used in day and remove it from available courses
+            for (int i=0; i<linkedCourses.Count; i++){
+                schedule3dArray[x, y, z+i] = linkedCourses[i];
+                Console.WriteLine("Added class " + linkedCourses[i].courseName + " to day " + (x+1) + " period " + (y+1) + " rank " +(z+i));
+                courseCount[linkedCourses[i]]--;
+                if(!coursesUsedInDay.Contains(linkedCourses[i])){
+                    coursesUsedInDay.Add(linkedCourses[i]);
+                }
+                if(!groupsUsedInPeriod.Contains(linkedCourses[i].group)){
+                    groupsUsedInPeriod.Add(linkedCourses[i].group);
+                }
+                removeAssociatedCourses(schedule3dArray,allCourses,linkedCourses[i],availableCourses);
+            }
+
+        }
+
+        public static void removeCoursesFromSchedule (Course[,,]schedule3dArray, List<Course> linkedCourses, int x, int y, int z, Dictionary<Course, int> courseCount, List<Course> coursesUsedInDay, List<string> groupsUsedInPeriod){
+            //Remove courses from schedule, increment course count back up, and remove it from courses used in day and add it to available courses
+            for (int i=0; i<linkedCourses.Count; i++){
+                schedule3dArray[x, y, z+i] = null;
+                courseCount[linkedCourses[i]]++;
+                coursesUsedInDay.Remove(linkedCourses[i]);
+                groupsUsedInPeriod.Remove(linkedCourses[i].group);
+            }
         }
 
         public static void printArray(Course[,,] schedule3dArray, List<Course> allCourses, int daysPerCycle, int periodsPerDay, int numGroups, int totalCoursesPlaced, int totalCourses){

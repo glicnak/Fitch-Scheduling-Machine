@@ -395,20 +395,20 @@ namespace Fitch_Scheduling_Machine
                 addForcedCourse("Work1 WOTP AM",day,period,allCourses,forcedCourses);
                 addForcedCourse("English WOTP PM",day,period,allCourses,forcedCourses);
             period = 5; //Period 6
-                addForcedCourse("CCQ A",day,period,allCourses,forcedCourses);
-                addForcedCourse("Math B",day,period,allCourses,forcedCourses);
-                addForcedCourse("History C",day,period,allCourses,forcedCourses);
-                addForcedCourse("Science D",day,period,allCourses,forcedCourses);
-                addForcedCourse("Out Ed E",day,period,allCourses,forcedCourses);
-                addForcedCourse("Out Ed F",day,period,allCourses,forcedCourses);
-                addForcedCourse("Out Ed G",day,period,allCourses,forcedCourses);
-                addForcedCourse("CCQ Sc4Boys F",day,period,allCourses,forcedCourses);
-                addForcedCourse("CCQ Sc4Boys G",day,period,allCourses,forcedCourses);
-                addForcedCourse("Tech D",day,period,allCourses,forcedCourses);
-                addForcedCourse("Science NV",day,period,allCourses,forcedCourses);
-                addForcedCourse("History JS",day,period,allCourses,forcedCourses);
-                addForcedCourse("Work2 WOTP AM",day,period,allCourses,forcedCourses);
-                addForcedCourse("Math WOTP PM",day,period,allCourses,forcedCourses);
+                //addForcedCourse("CCQ A",day,period,allCourses,forcedCourses);
+                //addForcedCourse("Math B",day,period,allCourses,forcedCourses);
+                //addForcedCourse("History C",day,period,allCourses,forcedCourses);
+                //addForcedCourse("Science D",day,period,allCourses,forcedCourses);
+                //addForcedCourse("Out Ed E",day,period,allCourses,forcedCourses);
+                //addForcedCourse("Out Ed F",day,period,allCourses,forcedCourses);
+                //addForcedCourse("Out Ed G",day,period,allCourses,forcedCourses);
+                //addForcedCourse("CCQ Sc4Boys F",day,period,allCourses,forcedCourses);
+                //addForcedCourse("CCQ Sc4Boys G",day,period,allCourses,forcedCourses);
+                //addForcedCourse("Tech D",day,period,allCourses,forcedCourses);
+                //addForcedCourse("Science NV",day,period,allCourses,forcedCourses);
+                // addForcedCourse("History JS",day,period,allCourses,forcedCourses);
+                //addForcedCourse("Work2 WOTP AM",day,period,allCourses,forcedCourses);
+                //addForcedCourse("Math WOTP PM",day,period,allCourses,forcedCourses);
 
             return forcedCourses;
         }

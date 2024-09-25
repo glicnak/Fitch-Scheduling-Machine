@@ -23,6 +23,6 @@ Course[,,] schedule3dArray = CreateSchedule.makeSchedule(allCourses);
         }
     }
 
-//PrintExcel.Main(schedule3dArrayStrings);
+PrintExcel.Main(schedule3dArrayStrings);
 
 

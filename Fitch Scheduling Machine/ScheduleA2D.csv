@@ -1,0 +1,108 @@
+Out Ed A,CCQ NV,French WOTP AM,Math C,CCQ F
+Out Ed B,Work1 WOTP PM,Work1 WOTP PM,Art JS,French WOTP AM
+Math C,English WOTP AM,History E,Work1 WOTP PM,Work1 WOTP PM
+English D,French E,English F,History B,English JS
+Science E,Science F,French G,French A,History B
+CCQ F,Science G,English NV,French E,Science C
+Math G,Tech F,Science D,Science F,Phys Ed NV
+CCQ NV,Tech G,Tech D,Science G,English A
+Art JS,History JS,French C,Tech F,English G
+French WOTP AM,History A,Phys Ed A,Tech G,French D
+Work1 WOTP PM,English B,Phys Ed B,CCQ D,Math E
+,Phys Ed C,Music JS,Music NV,
+,Phys Ed D,,Phys Ed WOTP AM,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+Math G,Science E,English WOTP AM,Science A,English WOTP AM
+Science A,English F,Work2 WOTP PM,Work2 WOTP PM,Work2 WOTP PM
+French B,Work2 WOTP PM,French A,History NV,Math A
+Out Ed C,Math WOTP AM,English B,Math WOTP AM,Art C
+Out Ed D,History C,History F,Math B,Music D
+History E,Math D,History G,English C,French NV
+English F,English NV,CW F,History D,French E
+CCQ Sc4Girls D,Out Ed Ex A,CW G,CW D,Science F
+Art NV,Out Ed Ex B,Out Ed Ex C,Music JS,Science G
+English JS,CCQ G,Out Ed Ex D,Out Ed Ex E,Tech F
+English WOTP AM,Math JS,Math E,Out Ed Ex F,Tech G
+Work2 WOTP PM,,Music NV,Out Ed Ex G,English B
+,,CCQ JS,,Phys Ed JS
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+English D,English WOTP AM,Science A,English WOTP AM,French B
+Math A,French JS,Science JS,Science C,English A
+History B,English C,Math WOTP AM,Math D,History C
+Science C,Out Ed Ex A,Math F,History JS,Math D
+Out Ed E,Out Ed Ex B,English WOTP PM,History A,French F
+Out Ed F,Science D,Math B,English B,CCQ G
+Out Ed G,Art E,CCQ E,Work3 WOTP PM,French WOTP PM
+CCQ Sc4Boys F,Music F,English G,Math NV,English E
+CCQ Sc4Boys G,Music G,Out Ed NV,Out Ed Ex E,CCQ JS
+History NV,Tech D,Out Ed Ex C,Out Ed Ex F,Science NV
+Science JS,Out Ed NV,Out Ed Ex D,Out Ed Ex G,Phys Ed WOTP AM
+Math WOTP AM,Work3 WOTP PM,,,
+Job Market WOTP PM,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+Science E,Math C,English D,English D,Out Ed A
+French A,CCQ B,English JS,History E,Out Ed B
+CCQ B,History A,Job Market WOTP PM,Math A,Math C
+Art C,Math JS,Work1 WOTP AM,Math F,Science E
+Music D,French D,French NV,French G,Math G
+Math F,Phys Ed E,History A,French JS,English F
+French G,Phys Ed F,Art E,Job Market WOTP AM,History D
+Phys Ed NV,Phys Ed G,Music F,Science B,CW D
+French JS,Math NV,Music G,Math WOTP PM,Math JS
+Work1 WOTP AM,Job Market WOTP AM,Science B,French C,Math NV
+English WOTP PM,French WOTP PM,CCQ C,Science NV,Job Market WOTP AM
+,,,,French WOTP PM
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+English A,Math G,French B,Science JS,Out Ed C
+Math B,History E,Math A,Work1 WOTP AM,Out Ed D
+History C,Work1 WOTP AM,Science C,English WOTP PM,CCQ Sc4Girls D
+Math D,English A,English WOTP PM,French NV,Art NV
+CCQ E,French F,French F,French D,Science JS
+French F,Out Ed JS,English G,History F,French A
+English G,English C,Work2 WOTP AM,History G,Work1 WOTP AM
+French NV,English NV,History D,CW F,English WOTP PM
+Out Ed JS,Science B,CW D,CW G,Science B
+Work2 WOTP AM,CCQ D,Math NV,Phys Ed A,English E
+Phys Ed WOTP PM,Math WOTP PM,Math E,Phys Ed B,History F
+,,Phys Ed JS,Math E,History G
+,,,CCQ C,CW F
+,,,,CW G
+,,,,
+,,,,
+,,,,
+,,,,
+English WOTP PM,French B,Science A,English JS,CCQ A
+Art A,History NV,History B,History NV,Math B
+Music B,Work2 WOTP AM,French JS,Job Market WOTP PM,History C
+English C,Phys Ed WOTP PM,Work3 WOTP AM,Math F,Science D
+History D,Math JS,French D,French G,Tech D
+CW D,Science D,Phys Ed E,Work2 WOTP AM,Out Ed E
+French E,Tech D,Phys Ed F,Art A,Out Ed F
+Science F,CCQ A,Phys Ed G,Music B,Out Ed G
+Science G,French C,Math WOTP PM,Phys Ed C,CCQ Sc4Boys F
+Tech F,English E,French C,Phys Ed D,CCQ Sc4Boys G
+Tech G,History F,Science NV,English E,Science NV
+English NV,History G,,,History JS
+History JS,CW F,,,Work2 WOTP AM
+Work3 WOTP AM,CW G,,,Math WOTP PM
+,,,,
+,,,,
+,,,,
+,,,,
