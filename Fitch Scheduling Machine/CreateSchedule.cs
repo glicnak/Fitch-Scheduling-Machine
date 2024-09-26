@@ -161,11 +161,11 @@ namespace Fitch_Scheduling_Machine
                 availableCourses.Clear(); // Reset available courses based on usedInDay
                 groupsUsedInPeriod.Clear();
                 availableCourses = courseCount
-                    .Where(entry => entry.Value > 0)
+                    .Where(entry => entry.Value > 0 && !coursesUsedInDay.Contains(entry.Key))
                     .Select(entry => entry.Key)
                     .ToList();
                 //Check for end of cycle
-                if (nextX == daysPerCycle){ // If we're at the end of 1 cycle
+                if (nextX == 3){ // If we're at the end of 1 cycle
                     //Debug
                     Console.WriteLine("It Worked!");
                     return true;
@@ -195,19 +195,22 @@ namespace Fitch_Scheduling_Machine
 
             //If there are still no available courses, do it all again
             if(availableCourses.Count==0){
-                populateSchedule(schedule3dArray, allCourses, allGroups, courseCount, availableCourses, groupsUsedInPeriod, coursesUsedInDay, daysPerCycle, periodsPerDay, numGroups, nextX, nextY, nextZ);
+                if(populateSchedule(schedule3dArray, allCourses, allGroups, courseCount, availableCourses, groupsUsedInPeriod, coursesUsedInDay, daysPerCycle, periodsPerDay, numGroups, nextX, nextY, nextZ)){
+                    return true;
+                }
             }
 
             // Try placing each string in the current cell
             foreach (Course c in availableCourses)
             {
+
                 //Check if there are no more available courses for an unused group
                 groupsLeft =  allGroups.Except(groupsUsedInPeriod).ToList();
                 List<Course> availableCoursesMidRepetition = new List<Course>();
                 for (int i=availableCourses.IndexOf(c); i<availableCourses.Count; i++){
                     availableCoursesMidRepetition.Add(availableCourses[i]);
                 }
-                if(!groupsLeft.All(g => availableCoursesMidRepetition.Any(d => d.group == g))){
+                if(!groupsLeft.All(g => availableCourses.Any(d => d.group == g))){
                     //Debug
                     Console.WriteLine("There are no courses available for certain groups left. Groups Used: " + groupsUsedInPeriod.Count + ": ");
                     Console.Write("Available Courses: ");
@@ -217,9 +220,10 @@ namespace Fitch_Scheduling_Machine
                     return false;
                 }
 
-                //Backup available courses and courses used in a day
-                List<Course> availableCoursesBackup = new List<Course>();
-                availableCourses.ForEach(d=>{availableCoursesBackup.Add(d);});
+                // shuffle available courses
+                shuffleList(availableCoursesMidRepetition);
+
+                //Backup courses used in a day
                 List<Course> coursesUsedInDayBackup = new List<Course>();
                 coursesUsedInDay.ForEach(d=>{coursesUsedInDayBackup.Add(d);});
 
@@ -250,7 +254,7 @@ namespace Fitch_Scheduling_Machine
 
                     // Backtrack
                     nextZ += -(linkedCourses.Count-1);
-                    removeCoursesFromSchedule(schedule3dArray,linkedCourses, nextX, nextY, nextZ, courseCount, coursesUsedInDay, groupsUsedInPeriod);
+                    removeCoursesFromSchedule(schedule3dArray,linkedCourses, nextX, nextY, nextZ, courseCount, coursesUsedInDayBackup, groupsUsedInPeriod);
                     Console.WriteLine("");
                     Console.WriteLine("Backtrack!");
                     Console.WriteLine("");

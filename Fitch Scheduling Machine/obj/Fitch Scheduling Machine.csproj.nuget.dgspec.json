@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "O:\\averrillo\\OneDrive - Sir Wilfrid Laurier School Board\\Desktop\\Fitch Scheduling Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj": {}
+    "C:\\Users\\studi\\Documents\\GitHub\\Fitch-Scheduling-Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj": {}
   },
   "projects": {
-    "O:\\averrillo\\OneDrive - Sir Wilfrid Laurier School Board\\Desktop\\Fitch Scheduling Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj": {
+    "C:\\Users\\studi\\Documents\\GitHub\\Fitch-Scheduling-Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "O:\\averrillo\\OneDrive - Sir Wilfrid Laurier School Board\\Desktop\\Fitch Scheduling Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj",
+        "projectUniqueName": "C:\\Users\\studi\\Documents\\GitHub\\Fitch-Scheduling-Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj",
         "projectName": "Fitch Scheduling Machine",
-        "projectPath": "O:\\averrillo\\OneDrive - Sir Wilfrid Laurier School Board\\Desktop\\Fitch Scheduling Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj",
-        "packagesPath": "C:\\Users\\averrillo\\.nuget\\packages\\",
-        "outputPath": "O:\\averrillo\\OneDrive - Sir Wilfrid Laurier School Board\\Desktop\\Fitch Scheduling Machine\\Fitch Scheduling Machine\\obj\\",
+        "projectPath": "C:\\Users\\studi\\Documents\\GitHub\\Fitch-Scheduling-Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj",
+        "packagesPath": "C:\\Users\\studi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\studi\\Documents\\GitHub\\Fitch-Scheduling-Machine\\Fitch Scheduling Machine\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\averrillo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\studi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
