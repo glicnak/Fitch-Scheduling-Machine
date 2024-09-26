@@ -132,11 +132,17 @@ namespace Fitch_Scheduling_Machine
             }
         }
 
-        public static bool populateSchedule(Course[,,] schedule3dArray, List<Course> allCourses, List<string> allGroups, Dictionary<Course, int> courseCount, List<Course> availableCourses, List<string> groupsUsedInPeriod, List<Course> coursesUsedInDay, int daysPerCycle, int periodsPerDay, int numGroups, int x, int y, int z){
+        public static bool populateSchedule(Course[,,] schedule3dArray, List<Course> allCourses, List<string> allGroups, Dictionary<Course, int> courseCount, List<Course> availableCoursesBackup, List<string> groupsUsedInPeriod, List<Course> coursesUsedInDay, int daysPerCycle, int periodsPerDay, int numGroups, int x, int y, int z){
             // Calculate next index
             int nextX = x;
             int nextY = y;
             int nextZ = z+1;          
+
+            //New available courses to modify
+            List<Course> availableCourses = new List<Course>();
+            for (int i = 0; i<availableCoursesBackup.Count;i++){
+                availableCourses.Add(availableCoursesBackup[i]);
+            }
 
             //Check for a change in period or day
             if (availableCourses.Count == 0){ //If there are no available courses, we're at the end of 1 period...
@@ -157,6 +163,7 @@ namespace Fitch_Scheduling_Machine
                     nextX = x+1;
                     nextY = 0;
                     coursesUsedInDay.Clear();//Reset courses used in a day at the start of the day
+                    
                 }
                 availableCourses.Clear(); // Reset available courses based on usedInDay
                 groupsUsedInPeriod.Clear();
@@ -164,6 +171,9 @@ namespace Fitch_Scheduling_Machine
                     .Where(entry => entry.Value > 0 && !coursesUsedInDay.Contains(entry.Key))
                     .Select(entry => entry.Key)
                     .ToList();
+                if (nextY == 0){
+                    shuffleList(availableCourses); //shuffle at the start of a new day
+                }
                 //Check for end of cycle
                 if (nextX == 3){ // If we're at the end of 1 cycle
                     //Debug
@@ -219,9 +229,6 @@ namespace Fitch_Scheduling_Machine
                     //Thread.Sleep(2000);
                     return false;
                 }
-
-                // shuffle available courses
-                shuffleList(availableCoursesMidRepetition);
 
                 //Backup courses used in a day
                 List<Course> coursesUsedInDayBackup = new List<Course>();

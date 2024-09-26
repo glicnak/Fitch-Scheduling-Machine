@@ -9,7 +9,7 @@ History,4,A,Annie,225,
 Phys Ed,2,A,Adam,Gym,abgym
 Out Ed,2,A,Chantal,Gym,abouted
 Out Ed Ex,2,A,Chantal,Gym,aboutedx
-Art,2,A,Desmond,114,
+Art,2,A,Desmond,114,abarts
 
 French,4,B,Adam,224,
 Math,4,B,Mo,221,
@@ -20,7 +20,7 @@ History,4,B,Annie,225,
 Phys Ed,2,B,Vero,Gym,abgym
 Out Ed,2,B,Vero,Gym,abouted
 Out Ed Ex,2,B,Vero,Gym,aboutedx
-Music,2,B,Mike,113,
+Music,2,B,Mike,113,abarts
 
 French,4,C,Sylvie,224,
 Math,4,C,Mo,221,
@@ -31,7 +31,7 @@ History,4,C,Annie,225,
 Phys Ed,2,C,Adam,Gym,cdgym
 Out Ed,2,C,Chantal,Gym,sec4gccq
 Out Ed Ex,2,C,Chantal,Gym,cdoutedx
-Art,2,C,Desmond,114,
+Art,2,C,Desmond,114,cdarts
 
 French,4,D,Chantal,224,
 Math,4,D,Andrew,226,
@@ -42,7 +42,7 @@ History,4,D,Annie,225,sec5ghistory
 Phys Ed,2,D,Vero,Gym,cdgym
 Out Ed,2,D,Vero,Gym,sec4gccq
 Out Ed Ex,2,D,Vero,Gym,cdoutedx
-Music,2,D,Mike,113,
+Music,2,D,Mike,113,cdarts
 
 French,4,E,Chantal,305,
 Math,4,E,Andrew,305,
@@ -53,7 +53,7 @@ History,4,E,Annie,307,
 Phys Ed,2,E,Adam,Gym,oldboysgym
 Out Ed,2,E,Adam,Gym,sec4bccq
 Out Ed Ex,2,E,Adam,Gym,boysoutedx
-Art,2,E,Desmond,114,
+Art,2,E,Desmond,114,efgarts
 
 French,4,F,Chantal,305,
 Math,4,F,Andrew,306,
@@ -64,7 +64,7 @@ History,4,F,Annie,307,sec5bhistory
 Phys Ed,2,F,Vero,Gym,oldboysgym
 Out Ed,2,F,Vero,Gym,sec4bccq
 Out Ed Ex,2,F,Vero,Gym,boysoutedx
-Music,2,F,Mike,113,boysmusic
+Music,2,F,Mike,113,efgarts
 
 Science,4,G,Carole,306,sec5bscience
 French,4,G,Chantal,305,
@@ -75,7 +75,7 @@ History,4,G,Annie,307,sec5bhistory
 Phys Ed,2,G,Vero,Gym,oldboysgym
 Out Ed,2,G,Vero,Gym,sec4bccq
 Out Ed Ex,2,G,Vero,Gym,boysoutedx
-Music,2,G,Mike,113,boysmusic
+Music,2,G,Mike,113,efgarts
 
 CCQ Sc4Girls,2,D,Sylvie,226,sec4gccq
 CCQ Sc4Boys,2,F,Sylvie,307,sec4bccq
