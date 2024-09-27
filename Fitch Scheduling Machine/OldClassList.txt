@@ -1,51 +1,51 @@
 5,6,A,B,C,D,E,F,G,NV,JS,WOTP AM,WOTP PM
 
-French,4,A,Teacher Y,224,
-Math,4,A,Andrew L,221,
-English,4,A,Mo,221,
-Science,4,A,Teacher X,214,
-CCQ,2,A,Teacher Y,226,
-History,4,A,Teacher Y,225,
+French,4,A,Adam,224,
+Math,4,A,Mo,221,
+English,4,A,Andrew L.,221,
+Science,4,A,Carole,214,
+CCQ,2,A,Andrew L.,226,
+History,4,A,Annie,225,
 Phys Ed,2,A,Adam,Gym,abgym
-Out Ed,2,A,Adam,Gym,abouted
-Out Ed Ex,2,A,Adam,Gym,aboutedx
+Out Ed,2,A,Chantal,Gym,abouted
+Out Ed Ex,2,A,Chantal,Gym,aboutedx
 Art,2,A,Desmond,114,abarts
 
-French,4,B,Teacher Y,224,
-Math,4,B,Andrew L,221,
+French,4,B,Adam,224,
+Math,4,B,Mo,221,
 English,4,B,Cindy,224,
 Science,4,B,Carole,214,
 CCQ,2,B,Sylvie,226,
 History,4,B,Annie,225,
 Phys Ed,2,B,Vero,Gym,abgym
-Out Ed,2,B,Chantal,Gym,abouted
-Out Ed Ex,2,B,Chantal,Gym,aboutedx
+Out Ed,2,B,Vero,Gym,abouted
+Out Ed Ex,2,B,Vero,Gym,aboutedx
 Music,2,B,Mike,113,abarts
 
-French,4,C,Teacher Y,224,
-Math,4,C,Andrew L,221,
-English,4,C,Mo,224,
+French,4,C,Sylvie,224,
+Math,4,C,Mo,221,
+English,4,C,Cindy,224,
 Science,4,C,Carole,214,
 CCQ,2,C,Sylvie,226,
 History,4,C,Annie,225,
-Phys Ed,2,C,Vero,Gym,cdgym
+Phys Ed,2,C,Adam,Gym,cdgym
 Out Ed,2,C,Chantal,Gym,sec4gccq
 Out Ed Ex,2,C,Chantal,Gym,cdoutedx
 Art,2,C,Desmond,114,cdarts
 
-French,4,D,Teacher Y,224,
+French,4,D,Chantal,224,
 Math,4,D,Andrew,226,
 English,4,D,Cindy,224,
 Science,4,D,Carole,214,sec5gscience
 CCQ,2,D,Sylvie,226,
 History,4,D,Annie,225,sec5ghistory
-Phys Ed,2,D,Adam,Gym,cdgym
-Out Ed,2,D,Adam,Gym,sec4gccq
-Out Ed Ex,2,D,Adam,Gym,cdoutedx
+Phys Ed,2,D,Vero,Gym,cdgym
+Out Ed,2,D,Vero,Gym,sec4gccq
+Out Ed Ex,2,D,Vero,Gym,cdoutedx
 Music,2,D,Mike,113,cdarts
 
-French,4,E,Vero,305,
-Math,4,E,Andrew L,305,
+French,4,E,Chantal,305,
+Math,4,E,Andrew,305,
 English,4,E,Cindy,305,
 Science,4,E,Carole,306,
 CCQ,2,E,Sylvie,307,
@@ -62,8 +62,8 @@ Science,4,F,Carole,306,sec5bscience
 CCQ,2,F,Sylvie,307,
 History,4,F,Annie,307,sec5bhistory
 Phys Ed,2,F,Vero,Gym,oldboysgym
-Out Ed,2,F,Chantal,Gym,sec4bccq
-Out Ed Ex,2,F,Chantal,Gym,boysoutedx
+Out Ed,2,F,Vero,Gym,sec4bccq
+Out Ed Ex,2,F,Vero,Gym,boysoutedx
 Music,2,F,Mike,113,efgarts
 
 Science,4,G,Carole,306,sec5bscience
@@ -73,8 +73,8 @@ English,4,G,Cindy,305,
 CCQ,2,G,Sylvie,307,
 History,4,G,Annie,307,sec5bhistory
 Phys Ed,2,G,Vero,Gym,oldboysgym
-Out Ed,2,G,Chantal,Gym,sec4bccq
-Out Ed Ex,2,G,Chantal,Gym,boysoutedx
+Out Ed,2,G,Vero,Gym,sec4bccq
+Out Ed Ex,2,G,Vero,Gym,boysoutedx
 Music,2,G,Mike,113,efgarts
 
 CCQ Sc4Girls,2,D,Sylvie,226,sec4gccq
@@ -93,38 +93,38 @@ Science,4,NV,Mike,NV,
 History,4,NV,Caroline,NV,
 Math,4,NV,Desmond,NV,
 Art,2,NV,Desmond,NV,
-CCQ,2,NV,Mike,NV,
-Music,2,NV,Mike,N,
-Phys Ed,2,NV,Vero,Gym,
+CCQ,2,NV,Nick,NV,
+Music,2,NV,Nick,N,
+Phys Ed,2,NV,Adam,Gym,
 Out Ed,2,NV,Adam,NV,
 
 English,4,JS,Mo,JS,
 French,4,JS,Caroline,JS,
 Science,4,JS,Mike,JS,
 History,4,JS,Caroline,JS,
-Math,4,JS,Andrew L,JS,
+Math,4,JS,Mike,JS,
 Art,2,JS,Desmond,JS,
-CCQ,2,JS,Nick,JS,
-Music,2,JS,Mike,JS,
-Out Ed,2,JS,Vero,JS,
+CCQ,2,JS,Desmond,JS,
+Music,2,JS,Nick,JS,
+Out Ed,2,JS,Adam,JS,
 Phys Ed,2,JS,Vero,Gym,
 
 French,3,WOTP AM,Caroline,111,
-English,4,WOTP AM,Teacher X,111,
-English2,2,WOTP AM,Teacher X,111,
+English,4,WOTP AM,Andrew L.,111,engwotpam
+English2,2,WOTP AM,Andrew L.,111,engwotpam
 Math,4,WOTP AM,Desmond,114,
 Phys Ed,2,WOTP AM,Vero,Gym,
-Job Market,3,WOTP AM,Teacher X,111,
+Job Market,3,WOTP AM,Andrew L.,111,
 Work1,5,WOTP AM,Pam&Keeley,Work,
 Work2,5,WOTP AM,Pam&Keeley,Work,
 Work3,2,WOTP AM,Pam&Keeley,Work,
 
 French,3,WOTP PM,Caroline,111,
-English,4,WOTP PM,Teacher X,111,
-English2,2,WOTP PM,Teacher X,111,
+English,4,WOTP PM,Andrew L.,111,engwotppm
+English2,2,WOTP PM,Andrew L.,111,engwotppm
 Math,4,WOTP PM,Desmond,114,
 Phys Ed,2,WOTP PM,Vero,Gym,
-Job Market,3,WOTP PM,Teacher X,111,
+Job Market,3,WOTP PM,Andrew L.,111,
 Work1,5,WOTP PM,Pam&Keeley,Work,
 Work2,5,WOTP PM,Pam&Keeley,Work,
 Work3,2,WOTP PM,Pam&Keeley,Work,
