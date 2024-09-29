@@ -19,6 +19,7 @@ namespace Fitch_Scheduling_Machine
             addForcedCourse("Out Ed E",0,2,allCourses,forcedCourses);
             addForcedCourse("Out Ed F",0,2,allCourses,forcedCourses);
             addForcedCourse("Out Ed G",0,2,allCourses,forcedCourses);
+            addForcedCourse("CCQ Sc4Girls D",0,1,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys F",0,2,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys G",0,2,allCourses,forcedCourses);
 
@@ -29,6 +30,7 @@ namespace Fitch_Scheduling_Machine
             addForcedCourse("Out Ed E",4,5,allCourses,forcedCourses);
             addForcedCourse("Out Ed F",4,5,allCourses,forcedCourses);
             addForcedCourse("Out Ed G",4,5,allCourses,forcedCourses);
+            addForcedCourse("CCQ Sc4Girls D",4,4,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys F",4,5,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys G",4,5,allCourses,forcedCourses);
             

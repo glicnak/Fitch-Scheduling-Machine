@@ -60,9 +60,7 @@ namespace Fitch_Scheduling_Machine
                     if(!coursesUsedInDay.Contains(schedule3dArray[0,0,i])){
                         groupsUsedInPeriod.Add(schedule3dArray[0,0,i].group);
                         removeAssociatedCourses(schedule3dArray,allCourses,schedule3dArray[0,0,i],availableCourses,coursesUsedInDay, groupsUsedInPeriod, teachersUsedInPeriod, courseCount, daysPerCycle, 0);
-
-            //TEACHER CHECK UPDATE 64-66
-                    if(!coursesUsedInDay.Contains(schedule3dArray[0,0,i])){
+                //TEACHER CHECK UPDATE 64-66
                         teachersUsedInPeriod.Add(schedule3dArray[0,0,i].teacher);
                     }
                 }
@@ -88,7 +86,7 @@ namespace Fitch_Scheduling_Machine
 
             //Return the 3d array
             return schedule3dArray;
-            }
+            
         }
         
 
@@ -274,7 +272,8 @@ namespace Fitch_Scheduling_Machine
 
             // Try placing each string in the current cell
             List<Course> availableMidLoop = new List<Course>();
-            List<string> iteratedCourses = new List<string>();
+            List<Course> iteratedCourses = new List<Course>();
+            List<string> iteratedLinks = new List<string>();
             foreach (Course c in availableCourses)
             {
 
@@ -293,9 +292,15 @@ namespace Fitch_Scheduling_Machine
                 groupsLeft =  allGroups.Except(groupsUsedInPeriod).ToList();
 
                 availableMidLoop = availableCourses
-                    .Where(c => !iteratedCourses.Contains(c.link)) // Exclude courses with iterated links
-                    .Except(availableCourses.TakeWhile(c => !c.Equals(c))) // Exclude all courses before and including the current one
+                    .Where(c => !iteratedLinks.Contains(c.link)) // Exclude courses with iterated links
                     .ToList(); 
+                
+                availableMidLoop.RemoveAll(course => iteratedCourses.Contains(course));
+
+                //Debug
+                Console.WriteLine("Available Mid Loop: ");
+                availableMidLoop.ForEach(f=>{Console.Write(f.courseName + ", ");});
+                Console.WriteLine();
 
                 if(!groupsLeft.All(g => availableMidLoop.Any(d => d.group == g))){
                     //Debug
@@ -323,11 +328,14 @@ namespace Fitch_Scheduling_Machine
                     availableCourses.ForEach(a=>{
                         if (c.link == a.link){
                             linkedCourses.Add(a);
+                            iteratedCourses.Add(a);
+                            iteratedLinks.Add(a.link);
                         }
                     });
                 }
                 else {
                     linkedCourses.Add(c);
+                    iteratedCourses.Add(c);
                 }
 
                 //Add courses //TEACHER CHECK UPDATE 334
@@ -357,11 +365,6 @@ namespace Fitch_Scheduling_Machine
                 Console.WriteLine("");
                 Console.WriteLine("Backtrack to day " + (nextX+1) + " period " + (nextY+1) + " rank " + nextZ + "!");
                 Console.WriteLine("");
-
-                // Add the current course's link to iteratedLinks (if it has a link)
-                if (!string.IsNullOrEmpty(c.link)){
-                    iteratedCourses.Add(c.link);
-                }
             }
 
             //Return false if we reach the end
