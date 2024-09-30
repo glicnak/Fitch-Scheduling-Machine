@@ -19,6 +19,8 @@ namespace Fitch_Scheduling_Machine
             addForcedCourse("Out Ed E",0,2,allCourses,forcedCourses);
             addForcedCourse("Out Ed F",0,2,allCourses,forcedCourses);
             addForcedCourse("Out Ed G",0,2,allCourses,forcedCourses);
+            addForcedCourse("Out Ed NV",1,2,allCourses,forcedCourses);
+            addForcedCourse("Out Ed JS",0,4,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Girls D",0,1,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys F",0,2,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys G",0,2,allCourses,forcedCourses);
@@ -30,6 +32,8 @@ namespace Fitch_Scheduling_Machine
             addForcedCourse("Out Ed E",4,5,allCourses,forcedCourses);
             addForcedCourse("Out Ed F",4,5,allCourses,forcedCourses);
             addForcedCourse("Out Ed G",4,5,allCourses,forcedCourses);
+            addForcedCourse("Out Ed NV",2,2,allCourses,forcedCourses);
+            addForcedCourse("Out Ed JS",1,4,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Girls D",4,4,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys F",4,5,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys G",4,5,allCourses,forcedCourses);
@@ -98,6 +102,20 @@ namespace Fitch_Scheduling_Machine
             addForcedCourse("Work2 WOTP AM",4,4,allCourses,forcedCourses);
             addForcedCourse("Work3 WOTP AM",0,3,allCourses,forcedCourses);
             addForcedCourse("Work3 WOTP AM",2,3,allCourses,forcedCourses);
+
+            //Nick
+            addForcedCourse("CCQ NV",0,0,allCourses,forcedCourses);
+            addForcedCourse("CCQ NV",1,1,allCourses,forcedCourses);
+            addForcedCourse("CCQ JS",0,1,allCourses,forcedCourses);
+            addForcedCourse("CCQ JS",1,0,allCourses,forcedCourses);
+            addForcedCourse("Music NV",2,1,allCourses,forcedCourses);
+            addForcedCourse("Music NV",3,0,allCourses,forcedCourses);
+            addForcedCourse("Music JS",2,0,allCourses,forcedCourses);
+            addForcedCourse("Music JS",3,1,allCourses,forcedCourses);
+
+            //Sylvie
+            // addForcedCourse("CCQ G",1,0,allCourses,forcedCourses);
+
 
             // int day;
             // int period;

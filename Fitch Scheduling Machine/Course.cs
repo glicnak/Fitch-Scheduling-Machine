@@ -14,6 +14,7 @@ namespace Fitch_Scheduling_Machine
         public string room = "";
         public int repetitions = 0;
         public string link = "";
+        public int teacherReps = 0;
     }
 
 }
