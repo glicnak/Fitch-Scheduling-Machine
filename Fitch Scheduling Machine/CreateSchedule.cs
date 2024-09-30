@@ -490,10 +490,11 @@ namespace Fitch_Scheduling_Machine
                 }
             }
             if(periodsLeftToTeach > periodsLeftInTotal-periodsTeacherAlreadyTeaching){
-                Console.WriteLine();
+                //Debug
+                /*Console.WriteLine();
                 Console.WriteLine("The problem is " + course.teacher + " has to teach " + periodsLeftToTeach + " in " + periodsLeftInTotal + " while being forced to teach " + periodsTeacherAlreadyTeaching);
                 Console.WriteLine();
-                Thread.Sleep(3000);
+                Thread.Sleep(3000);*/
                 return false;
             }
             return true;
