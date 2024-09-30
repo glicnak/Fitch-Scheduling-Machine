@@ -192,6 +192,8 @@ namespace Fitch_Scheduling_Machine
                 availableCourses.Add(availableCoursesBackup[i]);
             }
 
+            List<string> teachersNeededToBeAdded = new List<string>();
+
             //Check for a change in period or day
             if (availableCourses.Count == 0){ //If there are no available courses, we're at the end of 1 period...
                 //Check if every group is present at least once before moving to the next day
@@ -222,7 +224,7 @@ namespace Fitch_Scheduling_Machine
                     .ToList();
 
                 //Check for end of cycle
-                if (nextX == 4 && nextY == 5){ // If we're at the end of 1 cycle
+                if (nextX == daysPerCycle){ // If we're at the end of 1 cycle
                     //Debug
                     Console.WriteLine("It Worked!");
                     return true;
@@ -245,6 +247,9 @@ namespace Fitch_Scheduling_Machine
                 //Debug
                 Console.WriteLine(" Forced into day " + (nextX+1) + " period " + (nextY+1));
                 if(nextX >= sleepX && nextY>= sleepY && nextZ >= sleepZ){Thread.Sleep(2000);};
+
+                //Check if any teachers need to be added this period
+                teachersNeededToBeAdded = teachersAvailablePeriods(schedule3dArray, x,y,daysPerCycle,periodsPerDay,courseCount,teacherCount,availableCourses,numGroups);
             }
 
             //Check if there are available courses for every group thats left, otherwise return false
@@ -285,7 +290,15 @@ namespace Fitch_Scheduling_Machine
             }
             
             List<Course> orderedAvailableCourses = shuffleListByGroup(availableCourses,courseCount, teacherCount);
+            List<Course> newAvailableCourses= new List<Course>();
             availableCourses = orderedAvailableCourses;
+
+            if(!teachersNeededToBeAdded.Any()){
+                newAvailableCourses = orderedAvailableCourses
+                    .OrderBy(course => !teachersNeededToBeAdded.Contains(course.teacher))
+                    .ToList();
+                 availableCourses = newAvailableCourses;
+            }
 
             // Try placing each string in the current cell
             List<Course> availableMidLoop = new List<Course>();
@@ -452,7 +465,7 @@ namespace Fitch_Scheduling_Machine
         public static bool addCoursesToSchedule (Course[,,]schedule3dArray, List<Course> allCourses, List<Course> linkedCourses, int daysPerCycle, int periodsPerDay, int numGroups, int x, int y, int z, Dictionary<Course, int> courseCount, Dictionary<string,int> teacherCount, List<Course> availableCourses, List<Course> coursesUsedInDay, List<string> groupsUsedInPeriod, List<string> teachersUsedInPeriod){
             //Add courses to schedule, decrement course count, and add it to courses used in day and remove it from available courses
             for (int i=0; i<linkedCourses.Count; i++){
-                if(!removeAssociatedCourses(schedule3dArray,allCourses,linkedCourses[i],availableCourses,coursesUsedInDay,groupsUsedInPeriod, teachersUsedInPeriod, courseCount, teacherCount, daysPerCycle,periodsPerDay,x,y,numGroups) || !teacherAvailablePeriods(schedule3dArray, x,y,daysPerCycle,periodsPerDay,courseCount,teacherCount,linkedCourses[i],numGroups)){
+                if(!removeAssociatedCourses(schedule3dArray,allCourses,linkedCourses[i],availableCourses,coursesUsedInDay,groupsUsedInPeriod, teachersUsedInPeriod, courseCount, teacherCount, daysPerCycle,periodsPerDay,x,y,numGroups)){
                     return false;
                 }
                 schedule3dArray[x, y, z+i] = linkedCourses[i];
@@ -463,6 +476,41 @@ namespace Fitch_Scheduling_Machine
             return true;
         }
 
+    public static List<string> teachersAvailablePeriods(Course[,,] schedule3dArray, int x, int y, int daysPerCycle, int periodsPerDay, Dictionary<Course,int> courseCount, Dictionary<string, int> teacherCount, List<Course> availableCourses, int numGroups){
+            List<string> problematicTeachers = new List<string>();
+            availableCourses.ForEach(c=>{
+                int periodsLeftToTeach = teacherCount[c.teacher];
+                int periodsLeftInTotal = 0;
+                int periodsTeacherAlreadyTeaching = 0;
+                for (int j=y; j<periodsPerDay;j++){
+                    //do the check for today
+                    for(int k=0;k<numGroups;k++){
+                        if (schedule3dArray[x,j,k]!=null && schedule3dArray[x,j,k].teacher == c.teacher){
+                            periodsTeacherAlreadyTeaching++;
+                            break;
+                        }
+                    }
+                    periodsLeftInTotal++;
+                }
+                for(int i = x+1; i<daysPerCycle; i++){
+                    for (int j=0; j<periodsPerDay;j++){
+                        //do the check for tomorrow
+                        for(int k=0;k<numGroups;k++){
+                            if (schedule3dArray[i,j,k] != null && schedule3dArray[i,j,k].teacher == c.teacher){
+                                periodsTeacherAlreadyTeaching++;
+                                break;
+                            }
+                        }
+                        periodsLeftInTotal++;
+                    }
+                }
+                if(periodsLeftToTeach == periodsLeftInTotal-periodsTeacherAlreadyTeaching){
+                    problematicTeachers.Add(c.teacher);
+                }
+            });
+            
+            return problematicTeachers;
+        }
         public static bool teacherAvailablePeriods(Course[,,] schedule3dArray, int x, int y, int daysPerCycle, int periodsPerDay, Dictionary<Course,int> courseCount, Dictionary<string, int> teacherCount, Course course, int numGroups){
             int periodsLeftToTeach = teacherCount[course.teacher];
             int periodsLeftInTotal = 0;
