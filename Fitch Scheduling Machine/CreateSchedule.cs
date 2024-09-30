@@ -59,7 +59,7 @@ namespace Fitch_Scheduling_Machine
                     z++;
                     if(!coursesUsedInDay.Contains(schedule3dArray[0,0,i])){
                         groupsUsedInPeriod.Add(schedule3dArray[0,0,i].group);
-                        removeAssociatedCourses(schedule3dArray,allCourses,schedule3dArray[0,0,i],availableCourses,coursesUsedInDay, groupsUsedInPeriod, teachersUsedInPeriod, courseCount, daysPerCycle, 0);
+                        removeAssociatedCourses(schedule3dArray,allCourses,schedule3dArray[0,0,i],availableCourses,coursesUsedInDay, groupsUsedInPeriod, teachersUsedInPeriod, courseCount, daysPerCycle, periodsPerDay,0,0,numGroups);
                 //TEACHER CHECK UPDATE 64-66
                         teachersUsedInPeriod.Add(schedule3dArray[0,0,i].teacher);
                     }
@@ -125,18 +125,17 @@ namespace Fitch_Scheduling_Machine
         }
 
         public static List<Course> shuffleListByGroup(List<Course> list, Dictionary<Course,int> courseCount){
-            // Group courses by their Group property
-            var orderedCourses = list
-                .OrderBy(course => course.group)
-                .ThenByDescending(course => courseCount[course])
-                .ToList(); // Convert to a list to work with it
-
-            // Group by group and courseCount, shuffle within each group
-            var shuffledCourses = orderedCourses
-                .GroupBy(course => new { course.group, courseCount = courseCount[course] }) // Group by both group and courseCount
-                .SelectMany(group => group.OrderBy(_ => Guid.NewGuid())) // Shuffle within each group
-                .ToList(); // Flatten and collect into a list
-                
+            var shuffledCourses = shuffleList(list)            
+                .GroupBy(course => course.group)
+                .OrderBy(group => group.Count())
+                .SelectMany(group => 
+                    // Order each group: first by repetitions (highest first), 
+                    // then by whether the course has a link (courses with links first)
+                    group.OrderByDescending(course => course.repetitions)
+                        .ThenByDescending(course => !string.IsNullOrEmpty(course.link))
+                )
+                .ToList();
+            list = shuffledCourses;
             return shuffledCourses;
         }
 
@@ -166,7 +165,7 @@ namespace Fitch_Scheduling_Machine
             int nextX = x;
             int nextY = y;
             int nextZ = z+1;       
-            int sleepX = 1;
+            int sleepX = 3;
             int sleepY = 5;
             int sleepZ = 0;
 
@@ -205,10 +204,8 @@ namespace Fitch_Scheduling_Machine
                     .Select(entry => entry.Key)
                     .ToList();
 
-                shuffleListByGroup(availableCourses,courseCount); //shuffle at the start of a new period
-                
                 //Check for end of cycle
-                if (nextX == 4){ // If we're at the end of 1 cycle
+                if (nextX == daysPerCycle){ // If we're at the end of 1 cycle
                     //Debug
                     Console.WriteLine("It Worked!");
                     return true;
@@ -221,7 +218,7 @@ namespace Fitch_Scheduling_Machine
                         groupsUsedInPeriod.Add(schedule3dArray[nextX,nextY,i].group);
                                     //TEACHER CHECK UPDATE 225
                         teachersUsedInPeriod.Add(schedule3dArray[nextX,nextY,i].teacher);
-                        if(!removeAssociatedCourses(schedule3dArray,allCourses,schedule3dArray[nextX,nextY,i],availableCourses,coursesUsedInDay, groupsUsedInPeriod, teachersUsedInPeriod, courseCount, daysPerCycle, nextX)){
+                        if(!removeAssociatedCourses(schedule3dArray,allCourses,schedule3dArray[nextX,nextY,i],availableCourses,coursesUsedInDay, groupsUsedInPeriod, teachersUsedInPeriod, courseCount, daysPerCycle, periodsPerDay, nextX, nextY, numGroups)){
                             return false;
                         }
                         //Debug
@@ -269,16 +266,18 @@ namespace Fitch_Scheduling_Machine
                     return true;
                 }
             }
+            
+            List<Course> orderedAvailableCourses = shuffleListByGroup(availableCourses,courseCount);
+            availableCourses = orderedAvailableCourses;
 
             // Try placing each string in the current cell
             List<Course> availableMidLoop = new List<Course>();
             List<Course> iteratedCourses = new List<Course>();
-            List<string> iteratedLinks = new List<string>();
             foreach (Course c in availableCourses)
             {
 
                 //Check that there are at least as many days as courseCount left
-                if(courseCount.Any(entry => entry.Key.repetitions <= daysPerCycle && entry.Value > daysPerCycle-nextX)){
+                if(courseCount.Any(entry => entry.Key.repetitions <= daysPerCycle && entry.Value > daysPerCycle-nextX)){ 
                     //Debug
                     Console.WriteLine("Days left: " + (daysPerCycle-nextX));
                     foreach (var entry in courseCount){
@@ -292,7 +291,6 @@ namespace Fitch_Scheduling_Machine
                 groupsLeft =  allGroups.Except(groupsUsedInPeriod).ToList();
 
                 availableMidLoop = availableCourses
-                    .Where(c => !iteratedLinks.Contains(c.link)) // Exclude courses with iterated links
                     .ToList(); 
                 
                 availableMidLoop.RemoveAll(course => iteratedCourses.Contains(course));
@@ -312,6 +310,11 @@ namespace Fitch_Scheduling_Machine
                     return false;
                 }
 
+                //If was iterated, skip
+                if(iteratedCourses.Contains(c)){
+                    continue;
+                }
+
                 //Backup courses used in a day and groups used in period
                 List<Course> coursesUsedInDayBackup = new List<Course>();
                 coursesUsedInDay.ForEach(d=>{coursesUsedInDayBackup.Add(d);});
@@ -329,7 +332,6 @@ namespace Fitch_Scheduling_Machine
                         if (c.link == a.link){
                             linkedCourses.Add(a);
                             iteratedCourses.Add(a);
-                            iteratedLinks.Add(a.link);
                         }
                     });
                 }
@@ -339,7 +341,7 @@ namespace Fitch_Scheduling_Machine
                 }
 
                 //Add courses //TEACHER CHECK UPDATE 334
-                if(!addCoursesToSchedule(schedule3dArray, allCourses, linkedCourses, daysPerCycle, nextX,nextY,nextZ, courseCount, availableMidLoop, coursesUsedInDayBackup, groupsUsedInPeriodBackup, teachersUsedInPeriodBackup)){
+                if(!addCoursesToSchedule(schedule3dArray, allCourses, linkedCourses, daysPerCycle, periodsPerDay,numGroups,nextX,nextY,nextZ, courseCount, availableMidLoop, coursesUsedInDayBackup, groupsUsedInPeriodBackup, teachersUsedInPeriodBackup)){
                     return false;
                 }
                 nextZ += linkedCourses.Count-1;
@@ -374,10 +376,10 @@ namespace Fitch_Scheduling_Machine
             return false;
         }
 // TEACHER CHECK UPDATE 374
-        public static bool removeAssociatedCourses (Course[,,]schedule3dArray, List<Course> allCourses, Course course, List<Course> availableCourses, List<Course> coursesUsedInDay, List<string> groupsUsedInPeriod, List<string> teachersUsedInPeriod, Dictionary<Course,int> courseCount, int daysPerCycle, int currentDay){
+        public static bool removeAssociatedCourses (Course[,,]schedule3dArray, List<Course> allCourses, Course course, List<Course> availableCourses, List<Course> coursesUsedInDay, List<string> groupsUsedInPeriod, List<string> teachersUsedInPeriod, Dictionary<Course,int> courseCount, int daysPerCycle, int periodsPerDay, int currentDay, int currentPeriod, int numGroups){
             //Remove it from groups in period
             if(!groupsUsedInPeriod.Contains(course.group)){
-                groupsUsedInPeriod.Add(course.group); //Is this correct? It seems to be adding instead of removing...
+                groupsUsedInPeriod.Add(course.group);
             }
 
             //Add to courses used in day OR add to courses used in day only if coursesLeft <= days left
@@ -398,8 +400,8 @@ namespace Fitch_Scheduling_Machine
                 for (int j=0; j<availableCourses.Count; j++){
                     if(associatedClasses[i] != null && associatedClasses[i].link!=null && associatedClasses[i].link!= "" && availableCourses[j] != null && availableCourses[j].link == associatedClasses[i].link){
                         //Debug
-                        //if(associatedClasses[i].repetitions <= daysPerCycle && courseCount[associatedClasses[i]] > daysPerCycle-currentDay-1 && "there are no other available slots for it this period"){ //Fail if there wouldn't be enough classes anymore as of next period and tomorrow
-                        if(associatedClasses[i].repetitions <= daysPerCycle && courseCount[associatedClasses[i]] > daysPerCycle-currentDay){
+                        int plusOneForPossiblePeriodToday = possiblePeriodToday(schedule3dArray,associatedClasses[i],currentPeriod,currentDay,periodsPerDay,numGroups);
+                        if(associatedClasses[i].repetitions <= daysPerCycle && courseCount[associatedClasses[i]] > (daysPerCycle-currentDay+plusOneForPossiblePeriodToday)){  //Fail if there wouldn't be enough classes anymore as of next period and tomorrow
                             return false;
                         }
                     }
@@ -410,10 +412,26 @@ namespace Fitch_Scheduling_Machine
             return true;
         }
 
-        public static bool addCoursesToSchedule (Course[,,]schedule3dArray, List<Course> allCourses, List<Course> linkedCourses, int daysPerCycle, int x, int y, int z, Dictionary<Course, int> courseCount, List<Course> availableCourses, List<Course> coursesUsedInDay, List<string> groupsUsedInPeriod, List<string> teachersUsedInPeriod){
+        public static int possiblePeriodToday(Course[,,]schedule3dArray, Course course, int y, int x, int periodsPerDay, int numGroups){
+            int counter = 0;
+            for (int i=y+1;i<periodsPerDay;i++){
+                for (int j=0; j<numGroups;j++){
+                    if(schedule3dArray[x,i,j] != null && (schedule3dArray[x,i,j].group == course.group || schedule3dArray[x,i,j].teacher == course.teacher)){
+                        counter++;
+                        break;
+                    }
+                }
+            }
+            if(counter < (periodsPerDay-y-1)){
+                return 1;
+            }
+            return 0;
+        }
+
+        public static bool addCoursesToSchedule (Course[,,]schedule3dArray, List<Course> allCourses, List<Course> linkedCourses, int daysPerCycle, int periodsPerDay, int numGroups, int x, int y, int z, Dictionary<Course, int> courseCount, List<Course> availableCourses, List<Course> coursesUsedInDay, List<string> groupsUsedInPeriod, List<string> teachersUsedInPeriod){
             //Add courses to schedule, decrement course count, and add it to courses used in day and remove it from available courses
             for (int i=0; i<linkedCourses.Count; i++){
-                if(!removeAssociatedCourses(schedule3dArray,allCourses,linkedCourses[i],availableCourses,coursesUsedInDay,groupsUsedInPeriod, teachersUsedInPeriod, courseCount,daysPerCycle,x)){
+                if(!removeAssociatedCourses(schedule3dArray,allCourses,linkedCourses[i],availableCourses,coursesUsedInDay,groupsUsedInPeriod, teachersUsedInPeriod, courseCount,daysPerCycle,periodsPerDay,x,y,numGroups)){
                     return false;
                 }
                 schedule3dArray[x, y, z+i] = linkedCourses[i];
