@@ -249,7 +249,7 @@ namespace Fitch_Scheduling_Machine
                 if(nextX >= sleepX && nextY>= sleepY && nextZ >= sleepZ){Thread.Sleep(2000);};
 
                 //Check if any teachers need to be added this period
-                teachersNeededToBeAdded = teachersAvailablePeriods(schedule3dArray, x,y,daysPerCycle,periodsPerDay,courseCount,teacherCount,availableCourses,numGroups);
+                teachersNeededToBeAdded = teachersAvailablePeriods(schedule3dArray, nextX,nextY,daysPerCycle,periodsPerDay,courseCount,teacherCount,availableCourses,numGroups);
             }
 
             //Check if there are available courses for every group thats left, otherwise return false
@@ -305,7 +305,7 @@ namespace Fitch_Scheduling_Machine
             List<Course> iteratedCourses = new List<Course>();
             foreach (Course c in availableCourses)
             {
-
+            
                 //Check that there are at least as many days as courseCount left
                 if(courseCount.Any(entry => entry.Key.repetitions <= daysPerCycle && entry.Value > daysPerCycle-nextX)){ 
                     //Debug
@@ -324,6 +324,13 @@ namespace Fitch_Scheduling_Machine
                     .ToList(); 
                 
                 availableMidLoop.RemoveAll(course => iteratedCourses.Contains(course));
+
+                foreach (string teacher in teachersNeededToBeAdded){
+                    // If any teacher from teachersNeededToBeAdded is not found in any course, return false
+                    if (!availableCourses.Any(g => g.teacher == teacher)){
+                        return false; // A required teacher is missing
+                    }
+                }
 
                 //Debug
                 Console.WriteLine("Available Mid Loop: ");
@@ -371,7 +378,7 @@ namespace Fitch_Scheduling_Machine
                 }
 
                 //Add courses //TEACHER CHECK UPDATE 334
-                if(!addCoursesToSchedule(schedule3dArray, allCourses, linkedCourses, daysPerCycle, periodsPerDay,numGroups,nextX,nextY,nextZ, courseCount, teacherCount, availableMidLoop, coursesUsedInDayBackup, groupsUsedInPeriodBackup, teachersUsedInPeriodBackup)){
+                if(!addCoursesToSchedule(schedule3dArray, allCourses, linkedCourses, daysPerCycle, periodsPerDay,numGroups,nextX,nextY,nextZ, courseCount, teacherCount, availableMidLoop, coursesUsedInDayBackup, groupsUsedInPeriodBackup, teachersUsedInPeriodBackup, teachersNeededToBeAdded)){
                     return false;
                 }
                 nextZ += linkedCourses.Count-1;
@@ -391,7 +398,8 @@ namespace Fitch_Scheduling_Machine
                 // Backtrack //TEACHER CHECK UPDATE 351
                 nextZ += -(linkedCourses.Count-1);
                 removeCoursesFromSchedule(schedule3dArray,linkedCourses, nextX, nextY, nextZ, courseCount, teacherCount, coursesUsedInDayBackup, groupsUsedInPeriodBackup, teachersUsedInPeriodBackup);
-                
+                //Check if any teachers need to be added this period
+                teachersNeededToBeAdded = teachersAvailablePeriods(schedule3dArray, nextX,nextY,daysPerCycle,periodsPerDay,courseCount,teacherCount,availableCourses,numGroups);
                 
                 //Debug
                 Console.WriteLine("");
@@ -462,7 +470,7 @@ namespace Fitch_Scheduling_Machine
             return 1;
         }
 
-        public static bool addCoursesToSchedule (Course[,,]schedule3dArray, List<Course> allCourses, List<Course> linkedCourses, int daysPerCycle, int periodsPerDay, int numGroups, int x, int y, int z, Dictionary<Course, int> courseCount, Dictionary<string,int> teacherCount, List<Course> availableCourses, List<Course> coursesUsedInDay, List<string> groupsUsedInPeriod, List<string> teachersUsedInPeriod){
+        public static bool addCoursesToSchedule (Course[,,]schedule3dArray, List<Course> allCourses, List<Course> linkedCourses, int daysPerCycle, int periodsPerDay, int numGroups, int x, int y, int z, Dictionary<Course, int> courseCount, Dictionary<string,int> teacherCount, List<Course> availableCourses, List<Course> coursesUsedInDay, List<string> groupsUsedInPeriod, List<string> teachersUsedInPeriod, List<string> teachersNeededToBeAdded){
             //Add courses to schedule, decrement course count, and add it to courses used in day and remove it from available courses
             for (int i=0; i<linkedCourses.Count; i++){
                 if(!removeAssociatedCourses(schedule3dArray,allCourses,linkedCourses[i],availableCourses,coursesUsedInDay,groupsUsedInPeriod, teachersUsedInPeriod, courseCount, teacherCount, daysPerCycle,periodsPerDay,x,y,numGroups)){
@@ -472,6 +480,7 @@ namespace Fitch_Scheduling_Machine
                 Console.WriteLine("Added class " + linkedCourses[i].courseName + " to day " + (x+1) + " period " + (y+1) + " rank " +(z+i));
                 courseCount[linkedCourses[i]]--;
                 teacherCount[linkedCourses[i].teacher]--;
+                teachersNeededToBeAdded.Remove(linkedCourses[i].teacher);
             }
             return true;
         }
