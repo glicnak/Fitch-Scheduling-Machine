@@ -19,8 +19,8 @@ namespace Fitch_Scheduling_Machine
             addForcedCourse("Out Ed E",0,2,allCourses,forcedCourses);
             addForcedCourse("Out Ed F",0,2,allCourses,forcedCourses);
             addForcedCourse("Out Ed G",0,2,allCourses,forcedCourses);
-            addForcedCourse("Out Ed NV",1,2,allCourses,forcedCourses);
-            addForcedCourse("Out Ed JS",0,4,allCourses,forcedCourses);
+            addForcedCourse("Out Ed NV",1,2,allCourses,forcedCourses); //flexible
+            addForcedCourse("Out Ed JS",0,4,allCourses,forcedCourses); //flexible
             addForcedCourse("CCQ Sc4Girls D",0,1,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys F",0,2,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys G",0,2,allCourses,forcedCourses);
@@ -32,8 +32,8 @@ namespace Fitch_Scheduling_Machine
             addForcedCourse("Out Ed E",4,5,allCourses,forcedCourses);
             addForcedCourse("Out Ed F",4,5,allCourses,forcedCourses);
             addForcedCourse("Out Ed G",4,5,allCourses,forcedCourses);
-            addForcedCourse("Out Ed NV",2,2,allCourses,forcedCourses);
-            addForcedCourse("Out Ed JS",1,4,allCourses,forcedCourses);
+            addForcedCourse("Out Ed NV",2,2,allCourses,forcedCourses); //flexible
+            addForcedCourse("Out Ed JS",1,4,allCourses,forcedCourses); //flexible
             addForcedCourse("CCQ Sc4Girls D",4,4,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys F",4,5,allCourses,forcedCourses);
             addForcedCourse("CCQ Sc4Boys G",4,5,allCourses,forcedCourses);
@@ -113,9 +113,29 @@ namespace Fitch_Scheduling_Machine
             addForcedCourse("Music JS",2,0,allCourses,forcedCourses);
             addForcedCourse("Music JS",3,1,allCourses,forcedCourses);
 
-            //Sylvie
-            // addForcedCourse("CCQ G",1,0,allCourses,forcedCourses);
-
+            //Mike
+            // addForcedCourse("Art A",0,3,allCourses,forcedCourses);
+            // addForcedCourse("Art A",2,2,allCourses,forcedCourses);
+            // addForcedCourse("Music B",0,3,allCourses,forcedCourses);
+            // addForcedCourse("Music B",2,2,allCourses,forcedCourses);
+            // addForcedCourse("Art C",0,2,allCourses,forcedCourses);
+            // addForcedCourse("Art C",1,2,allCourses,forcedCourses);
+            // addForcedCourse("Music D",0,2,allCourses,forcedCourses);
+            // addForcedCourse("Music D",1,2,allCourses,forcedCourses);
+            // addForcedCourse("Art E",1,1,allCourses,forcedCourses);
+            // addForcedCourse("Art E",2,1,allCourses,forcedCourses);
+            // addForcedCourse("Music F",1,1,allCourses,forcedCourses);
+            // addForcedCourse("Music F",2,1,allCourses,forcedCourses);
+            // addForcedCourse("Music G",1,1,allCourses,forcedCourses);
+            // addForcedCourse("Music G",2,1,allCourses,forcedCourses);
+            // addForcedCourse("Science NV",0,1,allCourses,forcedCourses);
+            // addForcedCourse("Science NV",1,3,allCourses,forcedCourses);
+            // addForcedCourse("Science NV",2,3,allCourses,forcedCourses);
+            // addForcedCourse("Science NV",4,1,allCourses,forcedCourses);
+            // addForcedCourse("Science JS",0,5,allCourses,forcedCourses);
+            // addForcedCourse("Science JS",1,5,allCourses,forcedCourses);
+            // addForcedCourse("Science JS",2,5,allCourses,forcedCourses);
+            // addForcedCourse("Science JS",4,0,allCourses,forcedCourses);
 
             // int day;
             // int period;
@@ -522,7 +542,7 @@ namespace Fitch_Scheduling_Machine
             //Find the course
             Course course = allCourses.Find(c => c.courseName == name);
             // Check if the key exists
-            if (forcedCourses.ContainsKey(course)){
+            if (course!=null && forcedCourses.ContainsKey(course)){
                 // If the key exists, add the value to the existing value
                 forcedCourses[course].Add(new int[] {day,period});
                 //Console.WriteLine("added: " + course.courseName + " to day " + (day+1) + " and period " + (period+1));

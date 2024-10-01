@@ -1,114 +1,114 @@
-Out Ed A Adam,Phys Ed C Vero,Phys Ed A Adam,Phys Ed WOTP AM Vero,Phys Ed NV Vero
-Out Ed B Chantal,Phys Ed D Adam,Phys Ed B Vero,Work1 WOTP PM Pam&Keeley,Work1 WOTP PM Pam&Keeley
-Work1 WOTP PM Pam&Keeley,Work1 WOTP PM Pam&Keeley,Work1 WOTP PM Pam&Keeley,Music NV Mike,Math WOTP AM Desmond
-CCQ NV Mike,CCQ JS Nick,Music JS Mike,English JS Mo,Math E Andrew L
-Math WOTP AM Desmond,Math WOTP AM Desmond,English2 WOTP AM Teacher X,Science E Carole,French C Teacher Y
-English JS Mo,Science NV Mike,CCQ E Sylvie,English G Cindy,Science A Teacher X
-Tech G Andrew,History E Annie,French NV Caroline,French F Chantal,English B Cindy
-Science G Carole,English B Cindy,English C Mo,French C Teacher Y,History JS Caroline
-Tech F Andrew,Tech F Andrew,French F Chantal,Math A Andrew L,History D Annie
-Science F Carole,Science F Carole,English G Cindy,History B Annie,CW D Sylvie
-History C Annie,Tech G Andrew,Science D Carole,CCQ D Sylvie,Math F Andrew
-French D Teacher Y,Science G Carole,Tech D Andrew,,French G Chantal
-English E Cindy,History A Teacher Y,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
-Out Ed C Chantal,Out Ed Ex A Adam,Out Ed Ex C Chantal,Out Ed Ex E Adam,Phys Ed JS Vero
-Out Ed D Adam,Out Ed Ex B Chantal,Out Ed Ex D Adam,Out Ed Ex F Chantal,Work2 WOTP PM Pam&Keeley
-CCQ Sc4Girls D Sylvie,Work2 WOTP PM Pam&Keeley,Work2 WOTP PM Pam&Keeley,Out Ed Ex G Chantal,French WOTP AM Caroline
-Work2 WOTP PM Pam&Keeley,CCQ NV Mike,Music NV Mike,Work2 WOTP PM Pam&Keeley,Art E Desmond
-CCQ JS Nick,English WOTP AM Teacher X,English WOTP AM Teacher X,Music JS Mike,Music G Mike
-English WOTP AM Teacher X,CW F Mo,French E Vero,Math NV Desmond,Music F Mike
-CW G Mo,History F Annie,French JS Caroline,French WOTP AM Caroline,English NV Mo
-History G Annie,CW G Mo,Math A Andrew L,History A Teacher Y,CCQ C Sylvie
-CW F Mo,History G Annie,English B Cindy,Science B Carole,English D Cindy
-History F Annie,French C Teacher Y,CCQ F Sylvie,Math C Andrew L,CCQ A Teacher Y
-Science E Carole,Math JS Andrew L,Math G Andrew,History D Annie,Science B Carole
-French B Teacher Y,Science E Carole,,CW D Sylvie,
-Math A Andrew L,Math D Andrew,,,
-French NV Caroline,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-Out Ed E Adam,Out Ed NV Adam,Out Ed NV Adam,Out Ed Ex E Adam,Phys Ed WOTP AM Vero
-Out Ed F Chantal,Out Ed Ex A Adam,Out Ed Ex C Chantal,Out Ed Ex F Chantal,English E Cindy
-Out Ed G Chantal,Out Ed Ex B Chantal,Out Ed Ex D Adam,Out Ed Ex G Chantal,CCQ D Sylvie
-CCQ Sc4Boys F Sylvie,Work3 WOTP PM Pam&Keeley,Math WOTP AM Desmond,Work3 WOTP PM Pam&Keeley,Math C Andrew L
-CCQ Sc4Boys G Sylvie,French WOTP AM Caroline,English WOTP PM Teacher X,English WOTP AM Teacher X,History B Annie
-Job Market WOTP AM Teacher X,English JS Mo,English A Mo,French A Teacher Y,Math G Andrew
-Math WOTP PM Desmond,English F Cindy,Science F Carole,English B Cindy,French F Chantal
-English NV Mo,Math G Andrew,Tech F Andrew,Art NV Desmond,French A Teacher Y
-French A Teacher Y,Math E Andrew L,Science G Carole,Science C Carole,Art NV Desmond
-Science C Carole,Science C Carole,Tech G Andrew,Math D Andrew,Science JS Mike
-Math D Andrew,French D Teacher Y,History E Annie,History JS Caroline,English2 WOTP PM Teacher X
-History B Annie,,Science JS Mike,,
-French JS Caroline,,Math B Andrew L,,
+A Out Ed Adam,,,,
+B Out Ed Chantal,,,,
+C History Annie,A English Mo,,,
+D French Teacher Y,B History Annie,,,
+E Math Andrew L,C Phys Ed Vero,,,
+F Science Carole,D Phys Ed Adam,,,
+F Tech Andrew,E Science Carole,,,
+G Science Carole,F English Cindy,,,
+G Tech Andrew,G Math Andrew,,,
+JS English Mo,JS CCQ Nick,A Phys Ed Adam,,
+NV CCQ Nick,NV Science Mike,B Phys Ed Vero,NV Music Nick,
+WOTP AM Math Desmond,WOTP AM English Teacher X,JS Music Nick,WOTP AM Phys Ed Vero,NV Phys Ed Vero
+WOTP PM Work1 Pam&Keeley,WOTP PM Work1 Pam&Keeley,WOTP PM Work1 Pam&Keeley,WOTP PM Work1 Pam&Keeley,WOTP PM Work1 Pam&Keeley
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
-Phys Ed NV Vero,Phys Ed E Adam,Work3 WOTP AM Pam&Keeley,English2 WOTP AM Teacher X,Out Ed A Adam
-Work3 WOTP AM Pam&Keeley,Phys Ed F Vero,English E Cindy,Math WOTP PM Desmond,Out Ed B Chantal
-History JS Caroline,Phys Ed G Vero,CCQ G Sylvie,Science NV Mike,Job Market WOTP AM Teacher X
-English WOTP PM Teacher X,Job Market WOTP AM Teacher X,Math F Andrew,Math JS Andrew L,French WOTP PM Caroline
-English A Mo,Math WOTP PM Desmond,French D Teacher Y,English A Mo,Science NV Mike
-Science B Carole,History NV Caroline,History C Annie,History C Annie,Science C Carole
-Math C Andrew L,Math JS Andrew L,Math B Andrew L,French E Vero,French E Vero
-History E Annie,History C Annie,Science A Teacher X,CCQ B Sylvie,Math D Andrew
-English D Cindy,French A Teacher Y,Math WOTP PM Desmond,Science G Carole,Art JS Desmond
-Math F Andrew,Science B Carole,Science NV Mike,Tech G Andrew,CCQ F Sylvie
-French G Chantal,English D Cindy,French JS Caroline,Tech F Andrew,English G Cindy
-,,,Science F Carole,
-,,,French D Teacher Y,
+,A Out Ed Ex Adam,,,
+A English Mo,B Out Ed Ex Chantal,,,
+B Science Carole,C Math Andrew L,,,
+C Out Ed Chantal,D English Cindy,,,
+D CCQ Sc4Girls Sylvie,E History Annie,,,
+D Out Ed Adam,F Tech Andrew,,,
+E History Annie,F Science Carole,,,
+F English Cindy,G Tech Andrew,,,
+G Math Andrew,G Science Carole,,E Out Ed Ex Adam,
+JS CCQ Nick,JS Science Mike,C Out Ed Ex Chantal,F Out Ed Ex Chantal,
+NV History Caroline,NV CCQ Nick,D Out Ed Ex Adam,G Out Ed Ex Chantal,
+WOTP AM English Teacher X,WOTP AM Math Desmond,NV Music Nick,JS Music Nick,JS Phys Ed Vero
+WOTP PM Work2 Pam&Keeley,WOTP PM Work2 Pam&Keeley,WOTP PM Work2 Pam&Keeley,WOTP PM Work2 Pam&Keeley,WOTP PM Work2 Pam&Keeley
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+A French Teacher Y,A Out Ed Ex Adam,,,
+B History Annie,B Out Ed Ex Chantal,,,
+C English Mo,C French Teacher Y,,,
+D Tech Andrew,D Tech Andrew,,,
+D Science Carole,D Science Carole,,,
+E Out Ed Adam,E Math Andrew L,,,
+F CCQ Sc4Boys Sylvie,F History Annie,,,
+F Out Ed Chantal,F CW Mo,,,
+G CCQ Sc4Boys Sylvie,G CW Mo,,,
+G Out Ed Chantal,G History Annie,,,
+JS Math Andrew L,JS French Caroline,,E Out Ed Ex Adam,
+NV Math Desmond,NV Out Ed Adam,C Out Ed Ex Chantal,F Out Ed Ex Chantal,
+WOTP AM French Caroline,WOTP AM Job Market Teacher X,D Out Ed Ex Adam,G Out Ed Ex Chantal,
+WOTP PM English Teacher X,WOTP PM Work3 Pam&Keeley,NV Out Ed Adam,WOTP PM Work3 Pam&Keeley,WOTP AM Phys Ed Vero
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
-Out Ed JS Vero,Out Ed JS Vero,Phys Ed JS Vero,Phys Ed A Adam,Out Ed C Chantal
-Phys Ed WOTP PM Vero,Work2 WOTP AM Pam&Keeley,Work2 WOTP AM Pam&Keeley,Phys Ed B Vero,Out Ed D Adam
-Work2 WOTP AM Pam&Keeley,English E Cindy,Math E Andrew L,Work2 WOTP AM Pam&Keeley,CCQ Sc4Girls D Sylvie
-Math E Andrew L,French G Chantal,Art C Desmond,Job Market WOTP PM Teacher X,Work2 WOTP AM Pam&Keeley
-Math G Andrew,Math F Andrew,Music D Mike,History NV Caroline,Science E Carole
-English F Cindy,CW D Sylvie,English NV Mo,Science JS Mike,Job Market WOTP PM Teacher X
-Music B Mike,History D Annie,English F Cindy,History E Annie,CW G Mo
-Art A Desmond,English C Mo,French G Chantal,CCQ G Sylvie,History G Annie
-History NV Caroline,French B Teacher Y,CCQ A Teacher Y,English F Cindy,CW F Mo
-French C Teacher Y,Science A Teacher X,CCQ B Sylvie,Science D Carole,History F Annie
-History D Annie,French WOTP PM Caroline,Job Market WOTP PM Teacher X,Tech D Andrew,French JS Caroline
-CW D Sylvie,Math NV Desmond,,English C Mo,Math NV Desmond
-,,,,Math B Andrew L
-,,,,History A Teacher Y
 ,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-Work1 WOTP AM Pam&Keeley,Phys Ed WOTP PM Vero,Phys Ed E Adam,Phys Ed C Vero,Out Ed E Adam
-English G Cindy,Work1 WOTP AM Pam&Keeley,Phys Ed F Vero,Phys Ed D Adam,Out Ed F Chantal
-Math B Andrew L,Art E Desmond,Phys Ed G Vero,Work1 WOTP AM Pam&Keeley,Out Ed G Chantal
-French E Vero,Music F Mike,Work1 WOTP AM Pam&Keeley,English WOTP PM Teacher X,CCQ Sc4Boys F Sylvie
-Science JS Mike,Music G Mike,English2 WOTP PM Teacher X,Art A Desmond,CCQ Sc4Boys G Sylvie
-French F Chantal,Math C Andrew L,CCQ C Sylvie,Music B Mike,Work1 WOTP AM Pam&Keeley
-English C Mo,English NV Mo,English D Cindy,French NV Caroline,Music D Mike
-Math NV Desmond,History JS Caroline,French B Teacher Y,Math JS Andrew L,Art C Desmond
-Tech D Andrew,History A Teacher Y,English A Mo,CCQ E Sylvie,French B Teacher Y
-Science D Carole,History B Annie,Art JS Desmond,CW F Mo,English JS Mo
-Science A Teacher X,Science D Carole,French NV Caroline,History F Annie,English WOTP PM Teacher X
-French WOTP PM Caroline,Tech D Andrew,,History G Annie,Math A Andrew L
-,,,CW G Mo,History NV Caroline
+A Science Teacher X,A French Teacher Y,,,
+B English Cindy,B Math Andrew L,,,
+C French Teacher Y,C Science Carole,,,
+D CW Sylvie,D CW Sylvie,,,
+D History Annie,D History Annie,,,
+E Science Carole,E Phys Ed Adam,,,
+F Math Andrew,F Phys Ed Vero,,,
+G French Chantal,G Phys Ed Vero,,,
+JS History Caroline,JS History Caroline,,,
+NV Phys Ed Vero,NV English Mo,,,
+WOTP AM Work3 Pam&Keeley,WOTP AM English2 Teacher X,,,A Out Ed Adam
+WOTP PM Math Desmond,WOTP PM Math Desmond,WOTP AM Work3 Pam&Keeley,,B Out Ed Chantal
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
+A History Teacher Y,,,,
+B Math Andrew L,,,,
+C Science Carole,A Science Teacher X,,,
+D Math Andrew,B Science Carole,,,
+E English Cindy,C English Mo,,,
+F CW Mo,D French Teacher Y,,,
+F History Annie,E English Cindy,,,
+G History Annie,F Math Andrew,,,
+G CW Mo,G French Chantal,,,
+JS Out Ed Vero,JS Out Ed Vero,,,C Out Ed Chantal
+NV French Caroline,NV Math Desmond,,A Phys Ed Adam,D CCQ Sc4Girls Sylvie
+WOTP AM Work2 Pam&Keeley,WOTP AM Work2 Pam&Keeley,JS Phys Ed Vero,B Phys Ed Vero,D Out Ed Adam
+WOTP PM Phys Ed Vero,WOTP PM French Caroline,WOTP AM Work2 Pam&Keeley,WOTP AM Work2 Pam&Keeley,WOTP AM Work2 Pam&Keeley
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+A Math Andrew L,A History Teacher Y,,,
+B French Teacher Y,B English Cindy,,,
+C Art Desmond,C History Annie,,,
+D Music Mike,D Math Andrew,,,
+E French Vero,E Art Desmond,,,
+F French Chantal,F Music Mike,,,E Out Ed Adam
+G English Cindy,G Music Mike,,,F CCQ Sc4Boys Sylvie
+JS French Caroline,JS Math Andrew L,E Phys Ed Adam,,F Out Ed Chantal
+NV English Mo,NV History Caroline,F Phys Ed Vero,C Phys Ed Vero,G CCQ Sc4Boys Sylvie
+WOTP AM Work1 Pam&Keeley,WOTP AM Work1 Pam&Keeley,G Phys Ed Vero,D Phys Ed Adam,G Out Ed Chantal
+WOTP PM Job Market Teacher X,WOTP PM Phys Ed Vero,WOTP AM Work1 Pam&Keeley,WOTP AM Work1 Pam&Keeley,WOTP AM Work1 Pam&Keeley
