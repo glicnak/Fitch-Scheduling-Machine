@@ -1092,19 +1092,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\studi\\.nuget\\packages\\": {}
+    "C:\\Users\\averrillo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\studi\\Documents\\GitHub\\Fitch-Scheduling-Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj",
+      "projectUniqueName": "O:\\averrillo\\OneDrive - Sir Wilfrid Laurier School Board\\Desktop\\Fitch Scheduling Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj",
       "projectName": "Fitch Scheduling Machine",
-      "projectPath": "C:\\Users\\studi\\Documents\\GitHub\\Fitch-Scheduling-Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj",
-      "packagesPath": "C:\\Users\\studi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\studi\\Documents\\GitHub\\Fitch-Scheduling-Machine\\Fitch Scheduling Machine\\obj\\",
+      "projectPath": "O:\\averrillo\\OneDrive - Sir Wilfrid Laurier School Board\\Desktop\\Fitch Scheduling Machine\\Fitch Scheduling Machine\\Fitch Scheduling Machine.csproj",
+      "packagesPath": "C:\\Users\\averrillo\\.nuget\\packages\\",
+      "outputPath": "O:\\averrillo\\OneDrive - Sir Wilfrid Laurier School Board\\Desktop\\Fitch Scheduling Machine\\Fitch Scheduling Machine\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\studi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\averrillo\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

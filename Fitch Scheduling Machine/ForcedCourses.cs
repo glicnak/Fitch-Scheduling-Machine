@@ -137,6 +137,30 @@ namespace Fitch_Scheduling_Machine
             // addForcedCourse("Science JS",2,5,allCourses,forcedCourses);
             // addForcedCourse("Science JS",4,0,allCourses,forcedCourses);
 
+            //Phys Ed Ideal
+            // addForcedCourse("Phys Ed A",2,0,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed A",3,3,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed B",2,0,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed B",3,3,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed C",1,0,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed C",3,4,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed D",1,0,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed D",3,4,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed E",1,3,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed E",2,4,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed F",1,3,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed F",2,4,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed G",1,3,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed G",2,4,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed WOTP AM",3,0,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed WOTP AM",4,2,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed WOTP PM",0,4,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed WOTP PM",1,4,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed NV",0,3,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed NV",4,0,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed JS",2,3,allCourses,forcedCourses);
+            // addForcedCourse("Phys Ed JS",4,1,allCourses,forcedCourses);
+
             // int day;
             // int period;
             // day = 0;//Day 1

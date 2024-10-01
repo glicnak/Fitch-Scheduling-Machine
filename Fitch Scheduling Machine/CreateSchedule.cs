@@ -224,7 +224,7 @@ namespace Fitch_Scheduling_Machine
                     .ToList();
 
                 //Check for end of cycle
-                if (nextX == 2){ // If we're at the end of 1 cycle
+                if (nextX == daysPerCycle){ // If we're at the end of 1 cycle
                     //Debug
                     Console.WriteLine("It Worked!");
                     return true;

@@ -26,10 +26,12 @@ for (int i =0;i<array3dCourses.GetLength(0);i++){
                 return string.Compare(x.group, y.group);
             }
         });
+        int m=0;
         for (int k = 0; k<array3dCourses.GetLength(2);k++){
             if(tempArray[k]!= null){
-                array3dCourses[i,j,k] = tempArray[k];   
-                array3dStrings[i,j,k] = "" + array3dCourses[i,j,k].group + " " + array3dCourses[i,j,k].subject + " " + array3dCourses[i,j,k].teacher;
+                array3dCourses[i,j,m] = tempArray[k];   
+                array3dStrings[i,j,m] = "" + array3dCourses[i,j,m].group + " " + array3dCourses[i,j,m].subject + " " + array3dCourses[i,j,m].teacher;
+                m++;
             }
         }
     }
