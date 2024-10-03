@@ -38,3 +38,28 @@ for (int i =0;i<array3dCourses.GetLength(0);i++){
 }
 
 PrintExcel.Main(array3dStrings);
+
+//Debug Check for 6period Days
+for (int i =0;i<array3dCourses.GetLength(0);i++){
+    Dictionary<string, int> teachersPerDay = new Dictionary<string, int>(); 
+    for (int j = 0; j<array3dCourses.GetLength(1);j++){
+        for (int k=0;k<array3dCourses.GetLength(2);k++){
+            if (array3dCourses[i,j,k]!=null && teachersPerDay.ContainsKey(array3dCourses[i,j,k].teacher)){
+                // If the key exists, add the value to the existing value
+                teachersPerDay[array3dCourses[i,j,k].teacher]++;
+                break;
+            }
+            else{
+                // If the key does not exist, add the key with the value
+                teachersPerDay.Add(array3dCourses[i,j,k].teacher, 1);
+                break;
+            }
+        }
+    }
+    foreach (var pair in teachersPerDay){
+        if (pair.Value > 5){
+            Console.WriteLine(pair.Key + " teaches " + pair.Value + " periods on day " + (i+1));
+        }
+    }
+}
+

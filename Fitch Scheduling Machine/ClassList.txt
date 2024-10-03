@@ -13,7 +13,7 @@ Art,2,A,Desmond,114,abarts
 
 French,4,B,Teacher Y,224,
 Math,4,B,Andrew L,221,
-English,4,B,Cindy,224,
+English,4,B,Mo,224,
 Science,4,B,Carole,214,
 CCQ,2,B,Sylvie,226,
 History,4,B,Annie,225,
@@ -24,7 +24,7 @@ Music,2,B,Mike,113,abarts
 
 French,4,C,Teacher Y,224,
 Math,4,C,Andrew L,221,
-English,4,C,Mo,224,
+English,4,C,Cindy,224,
 Science,4,C,Carole,214,
 CCQ,2,C,Sylvie,226,
 History,4,C,Annie,225,

@@ -421,7 +421,7 @@ namespace Fitch_Scheduling_Machine
             }
 
             //Add to courses used in day OR add to courses used in day only if coursesLeft <= days left
-            if(!coursesUsedInDay.Contains(course) && courseCount[course] < (daysPerCycle - currentDay)){
+            if(!coursesUsedInDay.Contains(course) && course.repetitions < daysPerCycle){
                 coursesUsedInDay.Add(course);
                 availableCourses.Remove(course);
             }
